@@ -1,0 +1,197 @@
+# Sir.G Tutors — Application Architecture
+
+## 1. Overview
+Sir.G Tutors is a responsive tutoring marketplace that connects students and parents with tutors. The MVP targets Pakistan first, with international expansion planned later.
+
+## 2. Recommended Technology Stack
+- Frontend: React + TypeScript
+- Build tool: Vite
+- Styling: Tailwind CSS
+- Routing: React Router
+- Backend and database: Supabase (PostgreSQL)
+- Hosting: Vercel or Cloudflare Pages free tier
+- Version control: Git + GitHub
+- Development: VS Code and an AI coding assistant
+
+Free plans and limits may change. Confirm current pricing before deployment.
+
+## 3. High-Level Architecture
+Browser → React application → Supabase client → Supabase database
+
+The public website displays approved tutor profiles. Tutor applications and student requests are submitted through validated forms. Supabase stores submissions under database access policies. An administrator reviews applications and publishes approved profiles. No private service-role keys are placed in browser code.
+
+## 4. User Flows
+### Student or Parent
+Home → Browse Tutors or Find a Tutor → Search/filter approved tutors or submit a request → Confirmation → Admin reviews and contacts relevant parties.
+
+### Tutor
+Home → Become a Tutor → Complete application → Submit → Confirmation → Admin reviews application → Approved profile is published.
+
+### Administrator
+Secure administrative access → Review applications and requests → Approve or reject tutors → Publish only approved profiles.
+
+For the first prototype, administration may be handled through the Supabase dashboard with access restricted to the project owner. A custom admin dashboard can be added later.
+
+## 5. File and Folder Structure
+```text
+sir-g-tutors/
+├── public/
+│   ├── images/
+│   └── favicon.svg
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx
+│   │   │   └── Footer.tsx
+│   │   ├── tutors/
+│   │   │   └── TutorCard.tsx
+│   │   ├── forms/
+│   │   │   ├── TutorApplicationForm.tsx
+│   │   │   └── StudentRequestForm.tsx
+│   │   └── ui/
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   ├── BrowseTutors.tsx
+│   │   ├── TutorDetails.tsx
+│   │   ├── BecomeTutor.tsx
+│   │   ├── FindTutor.tsx
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   ├── FAQ.tsx
+│   │   ├── PrivacyPolicy.tsx
+│   │   └── Terms.tsx
+│   ├── hooks/
+│   ├── lib/
+│   │   └── supabase.ts
+│   ├── services/
+│   │   ├── tutors.ts
+│   │   └── requests.ts
+│   ├── types/
+│   │   └── index.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── supabase/
+│   └── migrations/
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── PRD.md
+└── ARCHITECTURE.md
+```
+
+## 6. Main Components
+- Navbar and Footer: shared website navigation.
+- TutorCard: displays an approved tutor's public information.
+- TutorApplicationForm: collects tutor applications.
+- StudentRequestForm: collects tutoring requirements.
+- BrowseTutors: lists and filters approved tutor profiles.
+- Services: separates database operations from page components.
+- Supabase client: connects the frontend to the database.
+
+## 7. Database Design
+### tutors
+- id: UUID primary key
+- display_name: text
+- subjects: text array
+- education_levels: text array
+- qualifications: text
+- experience: text
+- teaching_mode: text
+- city: text, optional
+- country: text
+- bio: text
+- status: pending, approved, or rejected
+- created_at: timestamp
+
+### tutor_applications
+- id: UUID primary key
+- applicant_name: text
+- email: text
+- whatsapp: text
+- city: text, optional
+- country: text
+- subjects: text array
+- education_levels: text array
+- qualifications: text
+- experience: text
+- teaching_mode: text
+- availability: text
+- introduction: text
+- consent: boolean
+- status: pending, approved, or rejected
+- created_at: timestamp
+
+### student_requests
+- id: UUID primary key
+- requester_name: text
+- email: text
+- whatsapp: text
+- city: text, optional
+- country: text
+- subject: text
+- education_level: text
+- teaching_mode: text
+- preferred_schedule: text
+- requirements: text
+- consent: boolean
+- status: pending, contacted, or closed
+- created_at: timestamp
+
+Keep private application and request data separate from public tutor profiles. Define appropriate database permissions before enabling submissions.
+
+## 8. Security and Privacy
+- Enable Supabase Row Level Security (RLS) on all relevant tables.
+- Allow public users to read only approved tutor profiles and permitted public fields.
+- Permit form submissions only through narrowly scoped policies or a secure server-side endpoint.
+- Never allow anonymous users to approve tutors or read private submissions.
+- Keep administrator permissions restricted to authorized users.
+- Never expose Supabase service-role keys or other secrets in frontend code.
+- Validate inputs on the client and server/database boundary.
+- Add anti-spam protection and rate limits before a public launch.
+- Publish tutor contact details only with explicit permission.
+
+## 9. Environment Variables
+Use a local `.env` file for development and the hosting provider's environment settings for deployment.
+
+Example `.env.example`:
+```text
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+```
+
+Vite exposes variables prefixed with `VITE_` to the browser. These values are not secret. Database RLS policies must protect the data. Never put service-role keys in these variables.
+
+## 10. Deployment Architecture
+1. Store source code in a GitHub repository.
+2. Create a Supabase project and apply database migrations and RLS policies.
+3. Configure public Supabase connection values in the hosting settings.
+4. Deploy the React application to Vercel or Cloudflare Pages.
+5. Configure SPA routing and test all direct page URLs.
+6. Test forms, database permissions, mobile layouts, and error states.
+7. Use the free hosting subdomain initially; buy a custom domain only when needed.
+
+## 11. Future Architecture Improvements
+- Authentication for tutors and administrators.
+- A protected admin dashboard.
+- Tutor profile editing and account management.
+- Booking and availability management.
+- Secure payments and commissions.
+- Email notifications and internationalization.
+
+## 12. Implementation Order
+1. Create the React + TypeScript + Vite project.
+2. Build the layout, navigation, homepage, and static pages.
+3. Build tutor cards and the browse-tutors page using sample data clearly marked as demo data.
+4. Create the tutor application and student request forms.
+5. Set up Supabase tables and secure access policies.
+6. Connect forms and approved tutor listings to Supabase.
+7. Test permissions and error handling.
+8. Deploy the prototype and test it with initial users.
+
+## 13. Architecture Decision
+Use a React + Vite frontend with TypeScript, Tailwind CSS, and Supabase for the initial MVP. This provides a flexible foundation without requiring a paid server for basic use. Free-tier availability, usage limits, and production requirements must be checked before launch.

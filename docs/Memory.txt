@@ -1,0 +1,224 @@
+Memory.md
+# Sir.G Tutors — Project Memory
+
+> **Purpose:** Keep AI coding assistants updated on the current project state, completed work, decisions, known issues, and next steps.
+>
+> **Important:** This document must reflect the actual codebase. Update it after meaningful coding sessions, not based on assumptions.
+
+## 1. Project Overview
+
+- **Project name:** Sir.G Tutors
+- **Project type:** Online tutoring marketplace
+- **Initial target market:** Pakistan
+- **Future target market:** Worldwide
+- **Starting budget:** Zero or near-zero
+- **Development approach:** Vibe coding with AI assistance
+- **Current project status:** Planning and documentation
+- **Current development phase:** Phase 1 — Project Setup and Homepage
+- **Live website URL:** Not deployed yet
+- **GitHub repository:** Not created or confirmed yet
+
+Update these details when the actual project status changes.
+
+## 2. Project Documentation
+
+The following documents define the project's requirements and development rules.
+
+| File | Purpose |
+|---|---|
+| `PRD.md` | Product requirements and MVP scope |
+| `ARCHITECTURE.md` | Technology stack, folder structure, database, and security |
+| `RULES.md` | AI coding rules, quality standards, and boundaries |
+| `PHASES.md` | Development phases and implementation order |
+| `DESIGN.md` | Colors, typography, layout, and visual style |
+| `MEMORY.md` | Current progress, decisions, issues, and next steps |
+
+**Instruction to AI:** Read the relevant project documents before making significant changes. Follow them consistently. If a conflict exists, identify it and ask for clarification rather than silently changing the project direction.
+
+## 3. Technology Stack
+
+### Planned stack
+
+- Frontend: React
+- Language: TypeScript
+- Build tool: Vite
+- Styling: Tailwind CSS
+- Routing: React Router
+- Backend/database: Supabase with PostgreSQL
+- Version control: Git and GitHub
+- Hosting: Vercel or Cloudflare Pages free tier
+
+### Actual stack
+
+Update this section after checking the installed project files.
+
+- React installed: Not yet verified
+- TypeScript configured: Not yet verified
+- Vite configured: Not yet verified
+- Tailwind CSS configured: Not yet verified
+- React Router configured: Not yet verified
+- Supabase connected: No confirmed connection yet
+- Git initialized: Not yet verified
+
+Never mark a tool or service as configured until the codebase or project settings confirm it.
+
+## 4. Current Development Status
+
+Update this checklist as work is completed and tested.
+
+- [ ] Project folder and repository created
+- [ ] React + TypeScript + Vite project initialized
+- [ ] Tailwind CSS configured
+- [ ] React Router configured
+- [ ] Shared design tokens implemented from `DESIGN.md`
+- [ ] Navbar and footer created
+- [ ] Homepage implemented
+- [ ] Homepage responsive on mobile and desktop
+- [ ] Public pages implemented
+- [ ] Tutor browsing interface implemented
+- [ ] Tutor application form implemented
+- [ ] Student request form implemented
+- [ ] Supabase database and migrations configured
+- [ ] Database security policies tested
+- [ ] Admin review workflow established
+- [ ] Production build tested
+- [ ] Website deployed and tested
+
+Only check an item when it has actually been implemented. For important functionality, record how it was tested.
+
+## 5. Completed Work Log
+
+Record meaningful progress in reverse chronological order.
+
+### Initial planning
+
+- Defined the Sir.G Tutors concept and target audience.
+- Created the initial product requirements.
+- Defined the proposed application architecture.
+- Established AI coding rules.
+- Broke development into manageable phases.
+- Defined the visual design system.
+
+**First coding session:** Not started or not yet recorded.
+
+### Session log template
+
+Copy this template for each meaningful coding session:
+
+#### Session — [YYYY-MM-DD]
+
+**Goal:**
+- What the AI was asked to implement.
+
+**Files created or changed:**
+- List actual file paths.
+
+**Completed:**
+- Describe functionality that was implemented.
+
+**Verification performed:**
+- Commands run and results.
+- Pages or features manually tested.
+
+**Issues remaining:**
+- Bugs, incomplete features, or failed tests.
+
+**Decisions made:**
+- Any confirmed technical or product decisions.
+
+**Next step:**
+- One clear next action.
+
+## 6. Current Application Structure
+
+Record the actual structure after the project is initialized.
+
+```text
+sir-g-tutors/
+├── public/
+├── src/
+├── supabase/
+├── PRD.md
+├── ARCHITECTURE.md
+├── RULES.md
+├── PHASES.md
+├── DESIGN.md
+└── MEMORY.md
+```
+
+This is an illustrative starting structure, not a claim that these files and folders already exist. Replace it with the real folder tree when coding begins.
+
+## 7. Confirmed Product Decisions
+
+- The MVP targets Pakistan first.
+- International expansion is a future goal.
+- The first version should be built with free or near-zero-cost tools.
+- The first release should prioritize essential marketplace functionality.
+- Students and parents can submit tutoring requests.
+- Tutors can submit applications.
+- Tutor profiles must be reviewed before publication.
+- Private applications and student requests must not be exposed publicly.
+- Login, payments, booking, messaging, and a custom admin dashboard are future features unless the project scope is explicitly updated.
+
+Do not change these decisions without recording the reason and confirming any significant scope change with the project owner.
+
+## 8. Known Issues and Blockers
+
+Maintain a list of unresolved problems.
+
+| Issue | Status | Notes |
+|---|---|---|
+| No confirmed coding setup | Pending | Verify when development starts |
+| No confirmed database setup | Pending | Configure during the relevant phase |
+| No confirmed deployment | Pending | Deploy after testing |
+
+Remove or update entries once resolved. Add actual errors here rather than guessing.
+
+## 9. Testing and Quality Checks
+
+For each important milestone, record the relevant checks.
+
+- Development server starts successfully.
+- TypeScript checks pass.
+- Lint checks pass, if configured.
+- Production build succeeds.
+- Routes load directly and through navigation.
+- Forms validate input correctly.
+- Success messages appear only after confirmed submissions.
+- Errors are handled without losing user input unnecessarily.
+- Responsive layouts work on mobile and desktop.
+- Database access policies prevent unauthorized access.
+- No private keys or service-role credentials appear in frontend code.
+
+Record actual results and failures. Do not report a test as passed if it was not run.
+
+## 10. Current Task and Next Action
+
+**Current phase:** Phase 1 — Project Setup and Homepage.
+
+**Next action:** Inspect the existing development environment and initialize the React + TypeScript + Vite project, then configure styling and routing according to the project documents.
+
+**Completion condition:** The project runs locally, shared layout components are implemented, and the first responsive homepage is working and tested.
+
+Do not start later phases until the current phase is reviewed.
+
+## 11. Instructions for a New AI Chat or Coding Tool
+
+When continuing this project:
+
+1. Read `MEMORY.md` first to understand the latest progress.
+2. Read `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` as needed.
+3. Inspect the actual codebase and compare it with this memory file.
+4. If the memory is outdated, correct it using verified information.
+5. Identify the current phase and the single next task.
+6. Make focused changes instead of rewriting working code unnecessarily.
+7. Run appropriate checks and report the actual results.
+8. Update `MEMORY.md` at the end of the session.
+9. Clearly list files changed, unresolved issues, and the next action.
+10. Never claim that something works, is secure, is deployed, or is tested without evidence.
+
+### Final rule
+
+**The codebase is the source of truth.** `MEMORY.md` helps preserve context, but it must never override the actual code, test results, or confirmed project decisions.
+
+~~~

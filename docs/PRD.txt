@@ -1,0 +1,117 @@
+# Sir.G Tutors — Product Requirements Document (PRD)
+
+## 1. Project Overview
+Sir.G Tutors is an online tutoring marketplace that connects students and parents with qualified tutors. The platform will launch in Pakistan and may expand worldwide in the future.
+
+## 2. Vision
+Make finding, offering, and accessing quality education easier, more transparent, and more affordable.
+
+## 3. Target Users
+- Students: Find tutors for school, college, university, and professional subjects.
+- Parents/Guardians: Find suitable tutors for their children.
+- Tutors: Create profiles, list subjects, describe qualifications, and receive tutoring inquiries.
+- Admin: Review submissions, manage listings, and help maintain platform quality.
+
+## 4. Goals
+- Launch a functional MVP with a zero-cost development and hosting setup where possible.
+- Validate demand in Pakistan before expanding internationally.
+- Make tutor discovery simple and mobile-friendly.
+- Collect tutor applications and student inquiries through forms.
+
+## 5. MVP Features
+### Public Website
+- Home page with clear value proposition and calls to action.
+- Browse Tutors page with searchable/filterable tutor listings when data is available.
+- Tutor profile cards with name, subjects, education/qualifications, teaching mode, and contact/inquiry action.
+- Subjects and education levels covering school, college, university, medical, and other professional subjects.
+- How It Works page explaining the process for students and tutors.
+- Become a Tutor page with a tutor application form.
+- Find a Tutor page with a student/parent request form.
+- About and Contact pages.
+- FAQ section.
+
+### Tutor Applications
+- Full name, email, optional phone, city/country, subjects, education level, qualifications, experience, online/in-person preference, availability, and a short introduction.
+- Consent to the privacy notice before submission.
+- Clear confirmation message after successful submission.
+
+### Student/Parent Requests
+- Student or guardian name, contact email, optional phone, city, required subject, education level, online/in-person preference, preferred schedule, and additional requirements.
+- Consent to the privacy notice before submission.
+- Clear confirmation message after successful submission.
+
+### Admin and Data Management
+- Use a simple, low-cost method to review tutor applications and student requests.
+- Publish tutor profiles only after review and approval.
+- Do not display private contact details without permission.
+- Provide a way to correct or remove submitted information.
+
+## 6. Future Features — Not Required for MVP
+- Student and tutor accounts with secure login.
+- Tutor dashboards and profile editing.
+- Real-time chat and notifications.
+- Built-in video lessons and scheduling.
+- Online payments, commissions, and subscriptions.
+- Ratings, reviews, and verified tutor badges.
+- Automated matching recommendations.
+- International currencies, languages, and location filters.
+
+## 7. Design Requirements
+- Brand name: Sir.G Tutors.
+- Style: Modern, trustworthy, welcoming, academic, and professional.
+- Responsive design for mobile, tablet, and desktop.
+- Clear navigation, readable typography, accessible contrast, and consistent buttons.
+- Use simple, lightweight assets to keep the website fast.
+- Avoid fake tutor profiles, fabricated reviews, and unsupported qualification claims.
+
+## 8. Technical Requirements
+- Build with a beginner-friendly, AI-assisted coding workflow.
+- Prefer free tools for development, data collection, and initial hosting.
+- Use a maintainable component-based structure.
+- Validate forms and show clear success/error states.
+- Protect personal information and restrict access to submissions.
+- Keep secrets and API keys out of public frontend code.
+- Use environment variables for any required secrets.
+- Provide basic accessibility, SEO metadata, and error handling.
+
+## 9. Success Metrics
+- Website can be opened successfully on desktop and mobile.
+- Tutor application form works from submission to review.
+- Student request form works from submission to review.
+- Initial tutors can be reviewed and approved manually.
+- Early users can understand how to find or offer tutoring.
+- Track visits, tutor applications, student requests, and successful connections where practical.
+
+## 10. MVP Acceptance Criteria
+- All main navigation links work.
+- Home, tutor discovery, tutor application, student request, About, and Contact pages are available.
+- Forms validate required fields and display confirmation/error messages.
+- Submitted data reaches the chosen storage or form-management service.
+- Tutor listings show only approved, genuine profiles.
+- Layout works on mobile and desktop.
+- Privacy information and contact details are visible.
+- No paid service is required for the initial prototype unless explicitly approved.
+
+## 11. Assumptions and Constraints
+- Initial target market: Pakistan.
+- Future target market: worldwide.
+- All education levels and a broad range of subjects are in scope, including medical subjects.
+- Initial budget: zero or near zero.
+- The first release is an MVP, not a full-scale marketplace.
+- Free plans may have usage limits, and domain registration or certain integrations may cost money.
+
+## 12. Out of Scope for Initial Launch
+- Guaranteed tutor credentials without verification.
+- Automated payments or commission collection.
+- Native mobile applications.
+- Unmoderated public reviews.
+- Guaranteed tutor availability or learning outcomes.
+
+## 13. Recommended Launch Strategy
+1. Build the website prototype.
+2. Connect tutor and student forms to a free or free-tier data collection method.
+3. Test submissions and mobile usability.
+4. Invite a small group of genuine tutors to apply.
+5. Manually review applications and publish approved profiles.
+6. Test with students and parents in Pakistan.
+7. Improve the service based on feedback before expanding.

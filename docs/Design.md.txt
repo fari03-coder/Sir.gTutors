@@ -1,0 +1,492 @@
+Design.md
+Sir.G Tutors — Design System
+
+## 1. Design Vision
+
+**Brand name:** Sir.G Tutors
+
+**Tagline:** Turning Potential into Performance
+
+**Product type:** Online tutoring marketplace
+
+**Target audience:** Students, parents/guardians, and tutors in Pakistan first, with worldwide expansion planned for the future.
+
+### Brand personality
+
+Sir.G Tutors should feel:
+
+- **Trustworthy:** Parents should feel comfortable exploring tutors.
+- **Professional:** The website should look organized and credible.
+- **Friendly:** Students should feel welcome and motivated.
+- **Simple:** Users should find tutors and submit forms without confusion.
+- **Modern:** Use clean layouts, subtle animations, and consistent spacing.
+
+### Overall visual direction
+
+Use a clean, modern educational website design with a warm, welcoming atmosphere.
+
+Avoid an overly childish appearance, excessive gradients, cluttered layouts, distracting animations, and unnecessary decorative elements.
+
+The website should look professional on desktop, tablet, and mobile.
+
+---
+
+## 2. Brand Colors
+
+Use the following color palette consistently across the website.
+
+| Color        | Hex Code  | Usage                                   |
+| ------------ | --------- | --------------------------------------- |
+| Primary Navy | `#17324D` | Main headings, navigation, footer       |
+| Primary Blue | `#2563EB` | Primary buttons, links, active states   |
+| Light Blue   | `#EFF6FF` | Hero backgrounds, highlighted sections  |
+| Teal Green   | `#0F766E` | Secondary accents, success indicators   |
+| Warm Yellow  | `#FBBF24` | Small highlights and decorative accents |
+| White        | `#FFFFFF` | Main page and card backgrounds          |
+| Light Gray   | `#F8FAFC` | Alternate section backgrounds           |
+| Border Gray  | `#E2E8F0` | Borders, dividers, input outlines       |
+| Main Text    | `#1E293B` | Body text                               |
+| Muted Text   | `#64748B` | Supporting text and descriptions        |
+| Error Red    | `#B91C1C` | Form errors and error messages          |
+
+### Color usage rules
+
+- Use navy for strong headings and important brand elements.
+- Use blue for the main call-to-action buttons.
+- Use white and light gray to keep the interface clean.
+- Use teal sparingly to highlight supportive actions and success states.
+- Use yellow only for small accents, badges, or decorative details.
+- Use red only for errors or important warnings.
+- Maintain accessible contrast between text and backgrounds.
+
+Do not use every color equally. Navy, blue, white, and light gray should dominate the interface.
+
+---
+
+## 3. Typography
+
+Use **Inter** as the primary font throughout the website.
+
+Fallback font stack:
+
+`Inter, ui-sans-serif, system-ui, sans-serif`
+
+Inter is suitable for a modern educational platform because it is clean, readable, and professional.
+
+### Typography scale
+
+| Element         | Desktop Size | Mobile Size | Weight  |
+| --------------- | ------------ | ----------- | ------- |
+| Hero heading    | 48–56px      | 34–40px     | 700     |
+| Page heading    | 36–44px      | 30–34px     | 700     |
+| Section heading | 28–32px      | 24–28px     | 600–700 |
+| Card heading    | 20–24px      | 18–22px     | 600     |
+| Body text       | 16–18px      | 16px        | 400     |
+| Supporting text | 14–16px      | 14–15px     | 400     |
+| Button text     | 15–16px      | 15–16px     | 600     |
+| Small labels    | 12–14px      | 12–14px     | 500–600 |
+
+### Typography rules
+
+- Use sentence case for headings and buttons.
+- Keep paragraphs short and easy to scan.
+- Use bold text to highlight important information, not entire paragraphs.
+- Keep line height around 1.5–1.7 for body text.
+- Use a maximum text width of approximately 65–75 characters for long paragraphs.
+- Avoid decorative fonts for body text.
+- Ensure headings wrap naturally on small screens.
+
+If Inter cannot be loaded, the system font fallback must still look good. The website must not break when an external font service is unavailable.
+
+---
+
+## 4. Layout and Spacing
+
+Use a consistent spacing system based on multiples of 4px.
+
+Suggested spacing values:
+
+- `4px`: Tiny gaps and icon spacing
+- `8px`: Compact spacing
+- `12px`: Small component gaps
+- `16px`: Standard spacing
+- `24px`: Card padding and component separation
+- `32px`: Section content spacing
+- `48px`: Large component separation
+- `64px`: Standard section spacing
+- `80–96px`: Large desktop section spacing
+
+### Container rules
+
+- Use a centered main content container.
+- Maximum content width: approximately `1200px`.
+- Use responsive side padding: `16px` on small screens, `24px` on medium screens, and `32px` on larger screens.
+- Keep content aligned consistently between sections.
+- Use a responsive grid instead of fixed-width page layouts.
+
+### Section spacing
+
+- Desktop: approximately `64–96px` between major sections.
+- Mobile: approximately `40–56px` between major sections.
+- Reduce excessive empty space on mobile without making the interface crowded.
+
+---
+
+## 5. Buttons and Interactive Elements
+
+### Primary button
+
+- Background: `#2563EB`
+- Text: white
+- Font weight: 600
+- Border radius: `10px`
+- Padding: approximately `12px 20px`
+- Hover: a slightly darker blue
+- Focus: visible keyboard focus ring
+
+Examples:
+
+- Find a Tutor
+- Browse Tutors
+- Submit Application
+
+### Secondary button
+
+- Background: white
+- Text: `#17324D`
+- Border: `1px solid #E2E8F0`
+- Border radius: `10px`
+
+Examples:
+
+- Learn More
+- View Details
+- Contact Us
+
+### Interactive states
+
+Every interactive element must have clear:
+
+- Default state
+- Hover state
+- Keyboard focus state
+- Disabled state
+- Loading state, when relevant
+
+Buttons must not look clickable if they do nothing. Avoid using vague labels such as "Click Here" when a descriptive label is possible.
+
+---
+
+## 6. Cards and Panels
+
+Use clean, white cards with subtle borders and restrained shadows.
+
+### Standard card style
+
+- Background: `#FFFFFF`
+- Border: `1px solid #E2E8F0`
+- Border radius: `14–16px`
+- Padding: `20–24px`
+- Shadow: very subtle
+- Hover effect: slight elevation or border-color change, only when the card is interactive
+
+### Tutor cards
+
+Each tutor card may display:
+
+- Tutor photo or initials-based avatar
+- Tutor's display name
+- Subjects taught
+- Education levels
+- Qualifications or experience summary
+- Teaching mode
+- City/country when relevant
+- View Profile button
+
+Only display verified or approved information that the tutor has permitted the platform to publish.
+
+Do not invent tutor names, qualifications, ratings, reviews, or verification badges. If demo profiles are used during development, label them clearly as sample data and remove them before public launch.
+
+---
+
+## 7. Header and Navigation
+
+### Desktop navigation
+
+- Brand logo on the left.
+- Main navigation links in the center or right.
+- Primary call-to-action button on the right.
+
+Suggested links:
+
+- Home
+- Find Tutors
+- Become a Tutor
+- About
+- Contact
+
+Use a clean white header with a subtle bottom border.
+
+The header may remain sticky while scrolling if it does not take up too much screen space.
+
+### Mobile navigation
+
+- Display the logo and a menu button.
+- Open a clear, keyboard-accessible navigation menu.
+- Make links easy to tap.
+- Close the menu after a navigation action.
+- Prevent the menu from covering content in an unusable way.
+
+Use the same navigation style across all pages.
+
+---
+
+## 8. Homepage Visual Structure
+
+Build the homepage in this order:
+
+### Section 1: Hero
+
+Use a light-blue background or a white background with a subtle blue accent.
+
+Suggested heading:
+
+**Find the Right Tutor. Unlock Your Potential.**
+
+Supporting text:
+
+"Connect with tutors for school, college, university, medical studies, and more. Find learning support that fits your goals."
+
+Primary CTA: **Find a Tutor**
+
+Secondary CTA: **Become a Tutor**
+
+Use a relevant educational illustration or a small, tasteful visual element. Avoid oversized stock photos that push the main message too far down the page.
+
+### Section 2: Learning Categories
+
+Show subject categories in a responsive card grid.
+
+Suggested categories:
+
+- School Subjects
+- College and University
+- Medical and Health Sciences
+- Mathematics and Science
+- Computer Science and IT
+- Languages and Humanities
+- Professional and Exam Preparation
+
+Use simple, consistent icons with short labels.
+
+### Section 3: How It Works
+
+Use three simple steps:
+
+1. Explore available tutors.
+2. Choose a tutor or submit your learning requirements.
+3. Connect and arrange your lessons.
+
+Do not imply that automated matching or instant booking exists unless it has actually been implemented.
+
+### Section 4: Why Sir.G Tutors?
+
+Highlight useful benefits such as:
+
+- Multiple subjects and education levels
+- Online and in-person teaching options where available
+- A straightforward tutor application process
+- Tutor profiles reviewed before publication
+
+Only make claims that the platform can genuinely support.
+
+### Section 5: Calls to Action
+
+Use two clear paths:
+
+- **Looking for a Tutor?**
+- **Want to Teach?**
+
+Each section should have one obvious primary action.
+
+### Section 6: Footer
+
+Include:
+
+- Sir.G Tutors logo/name
+- Short brand description
+- Main navigation links
+- Contact information, when available
+- Privacy Policy
+- Terms and Conditions
+- Copyright notice
+
+Do not invent contact details or social media links.
+
+---
+
+## 9. Forms and Input Fields
+
+Forms must look simple, trustworthy, and easy to complete.
+
+### Form design
+
+- Put a clear label above every field.
+- Use helpful placeholder text only when needed.
+- Use a consistent input height of approximately `44–48px`.
+- Use rounded corners of `8–10px`.
+- Provide enough spacing between fields.
+- Group related fields into sections for long forms.
+- Clearly mark required fields.
+- Display validation errors next to the relevant field.
+- Keep previously entered values when a correctable error occurs.
+- Show a loading state during submission.
+- Show a clear success message only after the submission is confirmed.
+- Show a helpful error message if submission fails.
+- Prevent accidental duplicate submissions.
+
+### Privacy and consent
+
+Tutor applications and student requests may contain personal information.
+
+- Explain why contact details are requested.
+- Include an appropriate consent checkbox where required.
+- Link to the Privacy Policy.
+- Never show private submissions on public pages.
+- Do not display a tutor's personal contact details publicly without explicit permission.
+
+---
+
+## 10. Icons and Illustrations
+
+Use one consistent icon family, preferably **Lucide**, for interface icons.
+
+Examples:
+
+- BookOpen for education
+- GraduationCap for learning
+- Search for finding tutors
+- Users for community
+- Video for online teaching
+- MapPin for location
+- CalendarDays for availability
+
+Use icons sparingly and consistently.
+
+### Illustration style
+
+If illustrations are used, choose a clean, modern, education-focused style.
+
+- Prefer simple shapes and restrained colors.
+- Use navy, blue, teal, and occasional yellow accents.
+- Avoid mixing realistic photography, 3D cartoons, and unrelated illustration styles.
+- Do not let decorative images compete with important content.
+- Use optimized images with appropriate alternative text.
+
+The website should remain useful and visually complete if optional illustrations fail to load.
+
+---
+
+## 11. Responsive Design
+
+Design for mobile first, then enhance the layout for larger screens.
+
+### Mobile
+
+- Single-column layouts where appropriate.
+- Full-width buttons when they improve usability.
+- Readable text without zooming.
+- Comfortable touch targets, ideally around `44 × 44px` or larger.
+- No horizontal scrolling.
+- Simplified navigation.
+- Properly stacked forms and cards.
+
+### Tablet
+
+- Two-column grids where appropriate.
+- Balanced spacing and readable line lengths.
+- Navigation adapted to the available width.
+
+### Desktop
+
+- Wider content container.
+- Two-column hero section where appropriate.
+- Multi-column subject and tutor grids.
+- Comfortable spacing without excessively long text lines.
+
+Test common widths around `375px`, `768px`, `1024px`, and `1440px`.
+
+---
+
+## 12. Motion and Animation
+
+Use subtle animation only when it helps explain an interaction.
+
+Recommended:
+
+- Smooth hover transitions
+- Gentle button-state transitions
+- Small menu animations
+- Subtle card hover effects
+
+Avoid:
+
+- Constant bouncing elements
+- Excessive parallax
+- Long page-load animations
+- Flashing elements
+- Animations that make forms or navigation harder to use
+
+Respect the user's reduced-motion preference.
+
+---
+
+## 13. Accessibility
+
+Follow accessible design practices throughout the website.
+
+- Use semantic HTML elements.
+- Maintain sufficient color contrast.
+- Ensure keyboard navigation works.
+- Provide visible focus indicators.
+- Give form fields programmatic labels.
+- Provide useful alternative text for meaningful images.
+- Do not communicate status using color alone.
+- Use descriptive link and button labels.
+- Ensure errors and success messages are understandable to screen-reader users.
+- Use appropriate heading levels in logical order.
+
+---
+
+## 14. Design Implementation Rules
+
+- Use React, TypeScript, Vite, and Tailwind CSS as defined in `ARCHITECTURE.md`.
+- Keep shared colors, fonts, spacing, radii, and shadows in reusable design tokens or Tailwind theme configuration.
+- Reuse shared components instead of creating slightly different versions on every page.
+- Keep all pages visually consistent.
+- Avoid unnecessary UI libraries and paid design assets.
+- Prefer lightweight, free assets with suitable usage rights.
+- Do not add new frameworks without a clear reason.
+- Do not invent product features to fill empty space.
+- Keep the interface functional even before the database is connected.
+- Use realistic placeholder copy, but clearly identify demo data.
+- Check mobile and desktop layouts after every significant design change.
+
+---
+
+## 15. Definition of Done
+
+The design phase is complete when:
+
+- [ ] The homepage follows the approved color palette and typography.
+- [ ] Header and footer are consistent across pages.
+- [ ] Buttons, forms, cards, and links share consistent styles.
+- [ ] All planned pages have responsive layouts.
+- [ ] Text is readable on mobile and desktop.
+- [ ] Keyboard focus and interactive states are visible.
+- [ ] Form errors, loading states, success states, and empty states are designed.
+- [ ] No unnecessary paid assets or dependencies are required.
+- [ ] The design matches the product scope in `PRD.md`.
+- [ ] The implementation follows `ARCHITECTURE.md`, `RULES.md`, and `PHASES.md`.
+
+**Final design principle:** Sir.G Tutors should make finding learning support feel simple, welcoming, and trustworthy. Prioritize clarity and usability over decoration.

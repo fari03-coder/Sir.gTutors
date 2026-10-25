@@ -1,0 +1,99 @@
+# Sir.G Tutors — AI Coding Rules
+
+## 1. Main Objective
+Build Sir.G Tutors as a reliable, responsive, beginner-friendly tutoring marketplace. Follow PRD.md and ARCHITECTURE.md. Prioritize a working MVP and a zero-cost setup where practical.
+
+## 2. Technology Rules
+- Use React, TypeScript, Vite, Tailwind CSS, React Router, and Supabase as defined in ARCHITECTURE.md.
+- Use existing project dependencies before adding new libraries.
+- Prefer stable, maintained libraries with clear documentation.
+- Do not add paid APIs, premium components, or subscriptions without approval.
+- Do not change the agreed technology stack without explaining the reason and obtaining approval.
+- Use TypeScript types; avoid `any` unless strictly necessary and documented.
+
+## 3. Project Structure
+- Follow the folder structure in ARCHITECTURE.md.
+- Keep components small, reusable, and focused on one responsibility.
+- Separate UI, form validation, and database operations.
+- Use consistent naming: PascalCase for React components and camelCase for functions and variables.
+- Do not duplicate components or create unnecessary files.
+
+## 4. Design Rules
+- Create a modern, welcoming, trustworthy education brand.
+- Ensure mobile-first responsive design.
+- Use consistent spacing, typography, colors, and button styles.
+- Include loading, empty, success, and error states where relevant.
+- Use semantic HTML, accessible labels, keyboard navigation, and visible focus states.
+- Do not use fake tutor profiles, fake reviews, or invented statistics as real content.
+
+## 5. Coding Rules
+- Write readable, maintainable code with clear names.
+- Avoid unnecessary abstractions and premature optimization.
+- Validate form inputs and trim unnecessary whitespace.
+- Keep reusable validation logic in an appropriate shared location.
+- Never put secrets, passwords, service-role keys, or private credentials in frontend code.
+- Never commit `.env` files or secrets to version control.
+- Keep `.env.example` limited to placeholder values.
+- Do not suppress TypeScript errors or lint warnings without a justified reason.
+
+## 6. Database and Security Rules
+- Use Supabase with PostgreSQL and enable Row Level Security on tables exposed through the API.
+- Apply least-privilege access policies and test them.
+- Public users may read only approved tutor profiles and explicitly public fields.
+- Anonymous users must not read private tutor applications or student requests.
+- Public form submissions must use narrowly scoped insert permissions or a secure server-side endpoint.
+- Only authorized administrators may approve or reject applications.
+- Never trust client-side role checks as the only security boundary.
+- Validate and constrain input on the server/database side as well as the client.
+- Collect only necessary personal information and explain its use.
+
+## 7. Error Handling
+- Handle database failures, network problems, invalid inputs, and unexpected responses.
+- Show friendly messages to users without exposing internal errors or private data.
+- Log useful diagnostic details only in appropriate development or protected server logs.
+- Never silently discard a failed submission.
+- Do not display a success message until the operation has actually succeeded.
+- Provide retry guidance where appropriate.
+- Do not expose stack traces, SQL details, API keys, or database configuration in public UI.
+
+## 8. Forms
+- Mark required fields clearly and validate them before submission.
+- Disable duplicate submission while a request is processing.
+- Show field-level validation errors where possible.
+- Preserve user-entered values after recoverable failures.
+- Show a clear confirmation only after a successful submission.
+- Include consent to the privacy notice where personal data is collected.
+- Add spam prevention before public launch.
+
+## 9. AI Behavior Rules
+- Read PRD.md, ARCHITECTURE.md, and RULES.md before implementing major changes.
+- Work in small, testable steps.
+- Explain important assumptions before making significant architectural changes.
+- Ask before introducing paid services, major dependencies, or features outside the MVP.
+- Do not claim that code has been tested, deployed, or published unless that actually happened.
+- Do not replace working code with a new approach without a clear reason.
+- Never invent environment variables, API responses, credentials, or service capabilities.
+- If requirements conflict, identify the conflict and ask for clarification when necessary.
+
+## 10. Testing Requirements
+- Run the available lint, type-check, build, and test commands when practical.
+- Test navigation, forms, filtering, responsive layouts, and error states.
+- Test that unauthorized users cannot access private submissions or approve tutors.
+- Fix errors introduced by the changes before moving on.
+- Report any checks that could not be run and explain why.
+
+## 11. Git and Change Management
+- Make focused changes rather than rewriting the whole application.
+- Do not delete user files or overwrite existing work without checking first.
+- Never commit secrets, personal data, or production database exports.
+- Summarize files changed and the reason for each significant change.
+- Provide clear instructions for any manual setup required.
+
+## 12. Scope Boundaries
+- MVP includes public pages, approved tutor listings, tutor applications, student requests, and manual administration.
+- Do not build payments, real-time chat, complex dashboards, or automated matching until requested.
+- Use clearly labeled demo data during development.
+- Do not publish demo data as genuine tutor information.
+
+## 13. Definition of Done
+A task is complete when the intended behavior works, relevant checks pass, errors are handled, security implications are considered, responsive layouts are checked, and any remaining limitations are clearly reported.

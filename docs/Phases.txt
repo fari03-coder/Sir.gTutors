@@ -1,0 +1,124 @@
+# Sir.G Tutors — Development Phases
+
+## Project Rules
+- Complete one phase at a time.
+- Read PRD.md, ARCHITECTURE.md, and RULES.md before starting.
+- Test each phase before moving forward.
+- Keep the project runnable after each phase.
+- Do not add paid services or unapproved features.
+- Do not claim a feature works until it has been tested.
+
+## Phase 1 — Project Setup and Homepage
+**Goal:** Create the project foundation and a professional responsive homepage.
+Tasks:
+- Set up React, TypeScript, Vite, Tailwind CSS, and React Router.
+- Establish the Sir.G Tutors visual design system.
+- Create Navbar, Footer, and shared layout components.
+- Build the homepage, navigation, hero section, subject categories, how-it-works section, and calls to action.
+- Test desktop and mobile layouts.
+**Complete when:** The project runs, the homepage renders, and navigation works.
+
+## Phase 2 — Public Pages and Tutor Discovery
+**Goal:** Build all essential public-facing pages.
+Tasks:
+- Create About, Contact, FAQ, Privacy Policy, and Terms pages.
+- Create Browse Tutors and Tutor Details pages.
+- Add subject, education-level, and teaching-mode filters.
+- Use clearly labelled demo data until real tutor profiles are approved.
+- Add loading, empty, and error states where needed.
+**Complete when:** Pages work, filters behave correctly, and demo content is not misrepresented as real.
+
+## Phase 3 — Tutor Application Form
+**Goal:** Allow tutors to apply.
+Tasks:
+- Build the tutor application form using the PRD fields.
+- Add required-field validation and accessible error messages.
+- Add consent to the privacy notice.
+- Implement loading, success, and failure states.
+- Prevent accidental duplicate submissions.
+**Complete when:** Form validation works and submission behavior is tested.
+
+## Phase 4 — Student Request Form
+**Goal:** Allow students and parents to request tutoring.
+Tasks:
+- Build the student request form using the PRD fields.
+- Add validation and privacy consent.
+- Add loading, success, and failure states.
+- Test the form on mobile and desktop.
+**Complete when:** Valid requests can be submitted and failures are clearly handled.
+
+## Phase 5 — Database and Secure Data Handling
+**Goal:** Connect forms and tutor listings to Supabase.
+Tasks:
+- Create the Supabase project.
+- Create database tables and migrations.
+- Enable Row Level Security on exposed tables.
+- Create least-privilege policies for public submissions and approved tutor listings.
+- Keep private applications and student requests inaccessible to unauthorized users.
+- Connect forms and tutor listings to the database.
+- Test authorized and unauthorized access.
+**Complete when:** Data flows correctly and security policies pass testing.
+
+## Phase 6 — Tutor Approval and Administration
+**Goal:** Establish a safe manual review process.
+Tasks:
+- Review applications using the restricted Supabase dashboard.
+- Approve or reject tutor applications.
+- Publish approved profiles only.
+- Keep student requests private.
+- Document the review and profile-publication process.
+**Complete when:** Only approved genuine tutor profiles are visible publicly.
+
+## Phase 7 — Quality Assurance and Security
+**Goal:** Prepare the MVP for real-world testing.
+Tasks:
+- Test all pages, forms, navigation, and filters.
+- Test mobile, tablet, and desktop layouts.
+- Run available type checks, linting, and production builds.
+- Check accessibility and basic SEO.
+- Test database permissions, spam protection, and error handling.
+- Fix critical bugs and remove unapproved demo content.
+**Complete when:** Critical issues are fixed and remaining limitations are documented.
+
+## Phase 8 — Deployment and Pilot Launch
+**Goal:** Publish the website using a suitable free-tier host.
+Tasks:
+- Store code in GitHub.
+- Configure environment variables safely.
+- Deploy to Vercel or Cloudflare Pages.
+- Test production URLs, direct navigation, forms, and database connectivity.
+- Add genuine approved tutor profiles with permission.
+- Invite a small group of initial users in Pakistan and collect feedback.
+**Complete when:** The deployed MVP works and the pilot process is ready.
+
+## Phase 9 — Improvements Based on Feedback
+**Goal:** Improve the product based on actual user needs.
+Tasks:
+- Review student and tutor feedback.
+- Improve search, page clarity, and form completion.
+- Fix usability issues and prioritize high-value changes.
+- Monitor free-tier usage and operating costs.
+**Complete when:** The next improvements are prioritized using real feedback.
+
+## Phase 10 — Future Features (Only When Needed)
+**Goal:** Expand beyond the MVP when demand justifies the effort.
+Potential features:
+- Secure tutor and student accounts.
+- Protected admin dashboard.
+- Tutor profile editing.
+- Booking and availability management.
+- Notifications and messaging.
+- Payment processing and commissions.
+- International expansion and localization.
+
+These features are not part of the initial MVP and require separate planning and security review.
+
+## Working Instructions for the AI
+For every phase:
+1. Read the project documents.
+2. Explain the phase goal and planned changes briefly.
+3. Inspect existing files before editing.
+4. Implement only the current phase.
+5. Run available checks and fix issues caused by the changes.
+6. Summarize files changed, tests performed, and manual steps remaining.
+7. Do not start the next phase until the user approves or explicitly asks to continue.
