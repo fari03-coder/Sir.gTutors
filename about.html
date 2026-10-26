@@ -1,10 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sir.G Tutors - About</title>
-</head>
-<body>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn about Sir.G Tutors, our mission, our vision, and how we support students."
+    />
+    <title>About | Sir.G Tutors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-loader" aria-hidden="true">
+      <span class="loader-brand">
+        <span class="brand-main">Sir.G</span>
+        <span class="brand-accent">Tutors</span>
+      </span>
+    </div>
+
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="index.html" aria-label="Sir.G Tutors home page">
+          <span class="brand-main">Sir.G</span>
+          <span class="brand-accent">Tutors</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-wrap" id="nav-menu">
+          <nav class="nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a class="active" href="about.html" aria-current="page">About</a>
+            <a href="services.html">Services</a>
+            <a href="find-tutor.html">Find a Tutor</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+
+          <div class="nav-actions">
+            <a class="btn btn-login" href="login.html">Login</a>
+            <a class="btn btn-primary navbar-demo" href="contact.html">Book a Free Demo</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" aria-labelledby="about-title">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Our Story</span>
+            <h1 id="about-title">Learning support that helps potential <span class="accent-text">grow</span>.</h1>
+          </div>
+          <p>
+            Sir.G Tutors is built around a simple idea: every learner deserves
+            clear guidance and support that fits their goals. We help students
+            and families explore tutoring options for school, college, and
+            beyond.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Our mission and vision">
+        <div class="container stats-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">01</div>
+            <h2>Our Mission</h2>
+            <p>
+              Make quality learning support easier to access by connecting
+              students and families with tutoring options suited to their needs.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">02</div>
+            <h2>Our Vision</h2>
+            <p>
+              Help make learning more approachable, transparent, and empowering
+              for students wherever they are.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="journey-impact-title">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Our Journey &amp; Impact</span>
+            <h2 id="journey-impact-title">Helping students <span class="accent-text">succeed</span>, one lesson at a time.</h2>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <h3><span class="accent-text">15+</span> years</h3>
+              <p>of experience helping learners build academic confidence.</p>
+            </article>
+
+            <article class="stat-card">
+              <h3><span class="accent-text">40,000+</span> students</h3>
+              <p>supported through tailored teaching, mentoring, and practice.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="why-choose-title">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Why Choose Us</span>
+            <h2 id="why-choose-title">Support for the way <span class="accent-text-alt">you learn</span>.</h2>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">01</div>
+              <h3>Student-focused support</h3>
+              <p>Explore learning options shaped around your subject, level, and goals.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">02</div>
+              <h3>Flexible ways to learn</h3>
+              <p>Choose from home tutoring and online learning options.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">03</div>
+              <h3>Focused exam practice</h3>
+              <p>Build confidence with guided revision and practice for exams.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">04</div>
+              <h3>A clear first step</h3>
+              <p>Talk with us about what you need and explore a free demo.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.querySelector(".nav-toggle");
+        const navWrap = document.querySelector(".nav-wrap");
+
+        if (toggle && navWrap) {
+          toggle.addEventListener("click", function () {
+            const isOpen = navWrap.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", String(isOpen));
+          });
+        }
+      });
+    </script>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <h3>Sir.G <span class="accent-text-light">Tutors</span></h3>
+          <p>Helping students grow with confidence through personal, practical learning support.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="find-tutor.html">Find a Tutor</a>
+          <a href="contact.html">Contact</a>
+          <a href="login.html">Login</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>Email: hello@sirg-tutors.com</p>
+          <p>Phone: +92 300 000 0000</p>
+          <p>Location: Lahore, Pakistan</p>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        © 2026 Sir.G Tutors. All rights reserved.
+      </div>
+    </footer>
+    <script src="js/animations.js" defer></script>
+  </body>
 </html>
