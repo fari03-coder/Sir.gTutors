@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body class="home-page">
     <div class="page-loader" aria-hidden="true">
       <span class="loader-brand">
         <span class="brand-main">Sir.G</span>
@@ -55,38 +55,80 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero" aria-labelledby="home-title">
         <div class="container hero-content">
-          <div class="hero-copy" data-animate="fade-left">
-            <span class="eyebrow">Trusted learning support</span>
-            <h1 class="hero-heading">Learn with confidence.Grow with guidance.</h1>
-            <p class="hero-rotator" aria-label="Home Tutors, Online Classes, Exam Preparation">
-              <span class="typewriter-text">Home Tutors</span>
-            </p>
+          <div class="hero-copy">
+            <span class="eyebrow">The Learning Solution</span>
+            <h1 class="hero-heading" id="home-title">Build <span class="accent-text">confidence</span> through learning.</h1>
             <p>
-              Sir.G Tutors helps students and parents connect with dependable
-              mentors, classroom support, and exam-focused learning designed to
-              build real confidence.
+              Find the right learning support for your goals, from your first
+              request to your first lesson.
             </p>
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-              <a class="btn btn-secondary" href="tutor-register.html">Become a Tutor</a>
+              <a class="btn btn-secondary" href="find-tutor.html">Find a Tutor</a>
             </div>
           </div>
 
-          <div class="hero-visual" data-animate="fade-right" aria-label="Highlights panel">
-            <div class="feature-panel">
-              <h3>One-on-one support that feels personal</h3>
-              <p>Academic coaching, subject mastery, and exam prep for every stage.</p>
-
-              <ul class="mini-list">
-                <li>School and college tutoring</li>
-                <li>Exam-focused practice guidance</li>
-                <li>Flexible online and in-person support</li>
-              </ul>
-            </div>
+          <div class="image-collage" aria-label="Students learning with Sir.G Tutors">
+            <img class="collage-image collage-image-main" src="images/students.jpg" alt="Student studying at home" />
+            <img class="collage-image collage-image-top" src="images/online.jpg" alt="Tutor helping a student learn" />
+            <img class="collage-image collage-image-bottom" src="images/pencil.jpg" alt="Student taking notes during a lesson" />
           </div>
+        </div>
+      </section>
+
+      <section class="stat-strip" aria-label="Sir.G Tutors at a glance">
+        <div class="container stat-strip-inner">
+          <div class="stat-item">
+            <strong class="stat-number" data-count-up="15" data-count-suffix="+">15+</strong>
+            <span>Years of Experience</span>
+          </div>
+          <div class="stat-item">
+            <strong class="stat-number" data-count-up="30000" data-count-suffix="+">30,000+</strong>
+            <span>Students Taught</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-section" aria-labelledby="steps-title">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">How It Works</span>
+            <h2 id="steps-title">Four simple steps to get started.</h2>
+          </div>
+
+          <ol class="steps-flow">
+            <li class="step">
+              <span class="step-number" aria-hidden="true">01</span>
+              <span class="step-icon" aria-hidden="true">＋</span>
+              <h3>Register</h3>
+              <p>Set up your account to begin.</p>
+              <small>Takes few seconds</small>
+            </li>
+            <li class="step">
+              <span class="step-number" aria-hidden="true">02</span>
+              <span class="step-icon" aria-hidden="true">✎</span>
+              <h3>Create Request</h3>
+              <p>Share the subject and support you need.</p>
+              <small>Takes 1 min</small>
+            </li>
+            <li class="step">
+              <span class="step-number" aria-hidden="true">03</span>
+              <span class="step-icon" aria-hidden="true">◷</span>
+              <h3>Free Demo</h3>
+              <p>Meet and discuss your learning goals.</p>
+              <small>Takes &lt; 1 day</small>
+            </li>
+            <li class="step">
+              <span class="step-number" aria-hidden="true">04</span>
+              <span class="step-icon" aria-hidden="true">✓</span>
+              <h3>Start Tuition</h3>
+              <p>Start lessons with a plan that suits you.</p>
+              <small>Congratulations!</small>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -121,55 +163,44 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="journey-impact-title">
-        <div class="container">
-          <div class="section-heading" data-animate="fade-up">
-            <span class="eyebrow">Our Journey &amp; Impact</span>
-            <h2 id="journey-impact-title">Helping students <span class="accent-text">succeed</span>, one lesson at a time.</h2>
+      <section class="section home-section" aria-labelledby="families-title">
+        <div class="container split">
+          <div class="split-image-wrap">
+            <img
+              class="split-image"
+              src="images/parent.jpg"
+              alt="A tutor giving a student focused learning support"
+              loading="lazy"
+            />
           </div>
-
-          <div class="stats-grid">
-            <article class="stat-card">
-              <h3><span class="accent-text">15+</span> years</h3>
-              <p>of experience helping learners build academic confidence.</p>
-            </article>
-
-            <article class="stat-card">
-              <h3><span class="accent-text">40,000+</span> students</h3>
-              <p>supported through tailored teaching, mentoring, and practice.</p>
-            </article>
+          <div class="split-copy">
+            <span class="eyebrow">Personal support, clear next steps</span>
+            <h2 id="families-title">Why families choose us</h2>
+            <p>
+              Finding learning support should feel straightforward. We help
+              families explore suitable tutoring options and take the next step
+              with confidence.
+            </p>
+            <ul class="feature-list">
+              <li>Support for a range of subjects and study levels</li>
+              <li>Options for online and in-person learning</li>
+              <li>A free demo to discuss your learning needs</li>
+              <li>Guidance from request through to getting started</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="services-title">
-        <div class="container">
-          <div class="section-heading" data-animate="fade-up">
-            <span class="eyebrow">Our Services</span>
-            <h2 id="services-title">Support designed around <span class="accent-text-alt">student goals</span>.</h2>
+      <section class="cta-band" aria-labelledby="cta-title">
+        <div class="container cta-band-content">
+          <div>
+            <span class="eyebrow">Ready to begin?</span>
+            <h2 id="cta-title">Take the next step in your learning.</h2>
+            <p>Tell us what you need and we’ll help you explore your options.</p>
           </div>
-
-          <div class="services-grid">
-            <article class="service-card">
-              <div class="service-icon">01</div>
-              <h3>Academic Tutoring</h3>
-              <p>Clear, patient support for core school subjects and everyday learning challenges.</p>
-              <a href="services.html">Learn more</a>
-            </article>
-
-            <article class="service-card">
-              <div class="service-icon">02</div>
-              <h3>Exam Preparation</h3>
-              <p>Focused revision plans and guided practice to improve confidence before tests.</p>
-              <a href="services.html">Learn more</a>
-            </article>
-
-            <article class="service-card">
-              <div class="service-icon">03</div>
-              <h3>Mentoring &amp; Guidance</h3>
-              <p>Personalized coaching to help students stay organized, motivated, and on track.</p>
-              <a href="services.html">Learn more</a>
-            </article>
+          <div class="cta-band-actions">
+            <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
+            <a class="btn btn-secondary" href="find-tutor.html">Create a Request</a>
           </div>
         </div>
       </section>
@@ -212,9 +243,9 @@
 
         <div class="footer-column">
           <h4>Contact</h4>
-          <p>Email: hello@sirg-tutors.com</p>
+          <p>Email: sir.G-tutors@gmail.com</p>
           <p>Phone: +92 300 000 0000</p>
-          <p>Location: Lahore, Pakistan</p>
+          <p>Location: Karachi, Pakistan</p>
         </div>
       </div>
 

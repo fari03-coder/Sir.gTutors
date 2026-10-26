@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore home tutoring, online tutoring, exam preparation, and other learning support from Sir.G Tutors."
+      content="Explore home tutoring, online tutoring, exam preparation, subject support, skills, and languages with Sir.G Tutors."
     />
     <title>Services | Sir.G Tutors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,8 +15,281 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .services-page .services-intro {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .services-page .services-intro::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 18%;
+        right: 8%;
+        width: clamp(100px, 17vw, 190px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(244, 211, 94, 0.42), rgba(238, 150, 75, 0.22));
+        filter: blur(1px);
+      }
+
+      .services-page .intro-copy,
+      .services-page .intro-story {
+        flex: 1 1 0;
+        min-width: 0;
+      }
+
+      .services-page .intro-copy h1 {
+        max-width: 600px;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        line-height: 1.06;
+        letter-spacing: -0.05em;
+      }
+
+      .services-page .intro-story {
+        max-width: 500px;
+      }
+
+      .services-page .intro-story p {
+        color: var(--muted);
+      }
+
+      .services-page .intro-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+
+      .services-page .intro-actions .btn-primary,
+      .services-page .service-booking,
+      .services-page .cta-band-actions .btn-primary {
+        background: #f95738;
+        box-shadow: none;
+      }
+
+      .services-page .btn-outline {
+        background: transparent;
+        color: var(--navy);
+        border-color: var(--navy);
+      }
+
+      .services-page .btn-outline:hover,
+      .services-page .btn-outline:focus-visible {
+        background: var(--soft-yellow);
+      }
+
+      .services-page .quick-jumps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-xs);
+        padding: var(--space-sm) 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .services-page .quick-jumps a {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        padding: 7px 14px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--navy);
+        font-size: 0.9rem;
+        font-weight: 700;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .services-page .quick-jumps a:hover,
+      .services-page .quick-jumps a:focus-visible {
+        background: var(--yellow);
+        transform: translateY(-1px);
+      }
+
+      .services-page .service-row {
+        scroll-margin-top: 90px;
+        gap: clamp(var(--space-md), 5vw, var(--space-xl));
+      }
+
+      .services-page .service-row.split--reverse {
+        flex-direction: row-reverse;
+      }
+
+      .services-page .service-image-wrap {
+        position: relative;
+        isolation: isolate;
+        padding: 0 14px 14px 0;
+      }
+
+      .services-page .service-image-wrap::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 14px 0 0 14px;
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, var(--yellow), var(--orange));
+      }
+
+      .services-page .service-image {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 24px rgba(13, 59, 102, 0.1);
+      }
+
+      .services-page .service-copy {
+        align-self: center;
+      }
+
+      .services-page .service-number {
+        display: inline-block;
+        margin-bottom: var(--space-xs);
+        color: var(--red);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      .services-page .service-copy h2 {
+        font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+      }
+
+      .services-page .service-copy > p {
+        max-width: 540px;
+        color: var(--muted);
+      }
+
+      .services-page .service-features {
+        margin: var(--space-sm) 0 var(--space-md);
+      }
+
+      .services-page .service-features li {
+        padding-left: 28px;
+      }
+
+      .services-page .service-features li::before {
+        content: "✓";
+        top: 1px;
+        display: grid;
+        width: 20px;
+        height: 20px;
+        place-items: center;
+        background: var(--soft-yellow);
+        color: var(--navy);
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+
+      .services-page .service-booking {
+        width: auto;
+      }
+
+      .services-page .accordion {
+        max-width: 850px;
+        margin: 0 auto;
+        border-top: 1px solid var(--border);
+      }
+
+      .services-page .accordion-item {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .services-page .accordion-item summary {
+        position: relative;
+        padding: var(--space-sm) 36px var(--space-sm) 0;
+        color: var(--navy);
+        font-weight: 700;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .services-page .accordion-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .services-page .accordion-item summary::after {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        right: 4px;
+        color: var(--red);
+        font-size: 1.5rem;
+        transform: translateY(-50%);
+      }
+
+      .services-page .accordion-item[open] summary::after {
+        content: "−";
+      }
+
+      .services-page .accordion-item summary:focus-visible {
+        outline: 2px solid var(--orange);
+        outline-offset: 3px;
+      }
+
+      .services-page .accordion-answer {
+        max-width: 720px;
+        margin: 0;
+        padding: 0 36px var(--space-sm) 0;
+        color: var(--muted);
+      }
+
+      .services-page .cta-band-content {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .services-page .cta-band-actions {
+        justify-content: center;
+      }
+
+      @media (max-width: 540px) {
+        .services-page .services-intro {
+          padding-top: var(--space-md);
+        }
+
+        .services-page .intro-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .services-page .service-row,
+        .services-page .service-row.split--reverse {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .services-page .service-row .service-copy {
+          order: 0;
+        }
+
+        .services-page .service-row .service-image-wrap {
+          order: 1;
+        }
+
+        .services-page .service-booking {
+          width: 100%;
+        }
+
+        .services-page .quick-jumps {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .services-page .quick-jumps a {
+          transition: none;
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="services-page">
     <div class="page-loader" aria-hidden="true">
       <span class="loader-brand">
         <span class="brand-main">Sir.G</span>
@@ -55,59 +328,222 @@
     </header>
 
     <main>
-      <section class="section" aria-labelledby="services-title">
+      <section class="home-section services-intro" aria-labelledby="services-title" data-animate="fade-up">
+        <div class="container split">
+          <div class="intro-copy">
+            <span class="eyebrow">What we offer</span>
+            <h1 id="services-title">Tutoring that fits every <span class="accent-text">student</span>.</h1>
+          </div>
+          <div class="intro-story">
+            <p>Choose learning support for your subjects, schedule, and goals.</p>
+            <div class="intro-actions">
+              <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
+              <a class="btn btn-outline" href="find-tutor.html">Find a Tutor</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="container quick-jumps" aria-label="Jump to a service">
+        <a href="#home-tutoring">Home Tutoring</a>
+        <a href="#online-tutoring">Online Tutoring</a>
+        <a href="#exam-preparation">Exam Preparation</a>
+        <a href="#subject-tutoring">Subject Tutoring</a>
+        <a href="#skills-languages">Skills &amp; Languages</a>
+      </nav>
+
+      <section class="home-section" id="home-tutoring" aria-labelledby="home-tutoring-title" data-animate="fade-up">
+        <div class="container split service-row">
+          <div class="split-image-wrap service-image-wrap">
+            <img class="service-image" src="images/service-1.jpg" alt="Student learning at home with a tutor" loading="lazy" />
+          </div>
+          <div class="split-copy service-copy">
+            <span class="service-number">01 / HOME TUTORING</span>
+            <h2 id="home-tutoring-title">Support in the comfort of <span class="accent-text">home</span>.</h2>
+            <p>A tutor comes to the student’s home to provide focused help with lessons, practice, and learning goals.</p>
+            <ul class="feature-list service-features">
+              <li>Learn in a familiar setting</li>
+              <li>Get support with school subjects</li>
+              <li>Discuss a schedule that suits your family</li>
+            </ul>
+            <a class="btn btn-primary service-booking" href="contact.html">Book a Free Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section" id="online-tutoring" aria-labelledby="online-tutoring-title" data-animate="fade-up">
+        <div class="container split split--reverse service-row">
+          <div class="split-image-wrap service-image-wrap">
+            <img class="service-image" src="images/service-2.jpg" alt="Student joining an online tutoring lesson" loading="lazy" />
+          </div>
+          <div class="split-copy service-copy">
+            <span class="service-number">02 / ONLINE TUTORING</span>
+            <h2 id="online-tutoring-title">Live learning from <span class="accent-text">anywhere</span>.</h2>
+            <p>Join live online classes from home or wherever you are, with guidance focused on your learning goals.</p>
+            <ul class="feature-list service-features">
+              <li>Learn remotely from a convenient location</li>
+              <li>Get live support and guided practice</li>
+              <li>Explore flexible lesson times</li>
+            </ul>
+            <a class="btn btn-primary service-booking" href="contact.html">Book a Free Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section" id="exam-preparation" aria-labelledby="exam-preparation-title" data-animate="fade-up">
+        <div class="container split service-row">
+          <div class="split-image-wrap service-image-wrap">
+            <img class="service-image" src="images/service-3.jpg" alt="Student preparing for an upcoming exam" loading="lazy" />
+          </div>
+          <div class="split-copy service-copy">
+            <span class="service-number">03 / EXAM PREPARATION</span>
+            <h2 id="exam-preparation-title">Prepare with a <span class="accent-text">plan</span>.</h2>
+            <p>Build understanding and confidence with guided review for important exams and assessments.</p>
+            <ul class="feature-list service-features">
+              <li>Board exam revision</li>
+              <li>Entry test preparation</li>
+              <li>O/A Level subject practice</li>
+            </ul>
+            <a class="btn btn-primary service-booking" href="contact.html">Book a Free Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section" id="subject-tutoring" aria-labelledby="subject-tutoring-title" data-animate="fade-up">
+        <div class="container split split--reverse service-row">
+          <div class="split-image-wrap service-image-wrap">
+            <img class="service-image" src="images/service-4.jpg" alt="Student studying a school subject" loading="lazy" />
+          </div>
+          <div class="split-copy service-copy">
+            <span class="service-number">04 / SUBJECT TUTORING</span>
+            <h2 id="subject-tutoring-title">Make every subject <span class="accent-text">clearer</span>.</h2>
+            <p>Get help with school subjects from primary years through higher classes.</p>
+            <ul class="feature-list service-features">
+              <li>Support across a range of school subjects</li>
+              <li>Review concepts and classwork</li>
+              <li>Build strong foundations for further study</li>
+            </ul>
+            <a class="btn btn-primary service-booking" href="contact.html">Book a Free Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section" id="skills-languages" aria-labelledby="skills-languages-title" data-animate="fade-up">
+        <div class="container split service-row">
+          <div class="split-image-wrap service-image-wrap">
+            <img class="service-image" src="images/service-5.jpg" alt="Student practicing a new skill" loading="lazy" />
+          </div>
+          <div class="split-copy service-copy">
+            <span class="service-number">05 / SKILLS &amp; LANGUAGES</span>
+            <h2 id="skills-languages-title">Learn skills for <span class="accent-text">life</span>.</h2>
+            <p>Explore language and practical skills that support learning at school and beyond.</p>
+            <ul class="feature-list service-features">
+              <li>English language learning</li>
+              <li>Quran learning</li>
+              <li>Computer skills and more</li>
+            </ul>
+            <a class="btn btn-primary service-booking" href="contact.html">Book a Free Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stat-strip" aria-label="Sir.G Tutors experience" data-animate="fade-up">
+        <div class="container stat-strip-inner">
+          <div class="stat-item">
+            <strong class="stat-number" data-count-up="15" data-count-suffix="+">15+</strong>
+            <span>Years of Experience</span>
+          </div>
+          <div class="stat-item">
+            <strong class="stat-number" data-count-up="30000" data-count-suffix="+">30,000+</strong>
+            <span>Students Taught</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section" aria-labelledby="steps-title" data-animate="fade-up">
         <div class="container">
           <div class="section-heading">
-            <span class="eyebrow">Our Services</span>
-            <h1 id="services-title">Learning support for every <span class="accent-text">next step</span>.</h1>
-            <p>
-              Explore different ways to get support with your learning. Get in
-              touch to discuss your needs and book a free demo.
-            </p>
+            <span class="eyebrow">How it works</span>
+            <h2 id="steps-title">Four simple steps to get started.</h2>
           </div>
 
-          <div class="services-grid">
-            <article class="service-card">
-              <div class="service-icon" aria-hidden="true">01</div>
-              <h2>Home Tutoring</h2>
-              <p>One-to-one learning support at home for subjects and schoolwork.</p>
-              <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-            </article>
+          <ol class="steps-flow">
+            <li class="step">
+              <span class="step-number" aria-hidden="true">01</span>
+              <span class="step-icon" aria-hidden="true">＋</span>
+              <h3>Register</h3>
+              <p>Set up your account to begin.</p>
+              <small>Takes few seconds</small>
+            </li>
+            <li class="step">
+              <span class="step-number" aria-hidden="true">02</span>
+              <span class="step-icon" aria-hidden="true">✎</span>
+              <h3>Create Request</h3>
+              <p>Share the subject and support you need.</p>
+              <small>Takes 1 min</small>
+            </li>
+            <li class="step">
+              <span class="step-number" aria-hidden="true">03</span>
+              <span class="step-icon" aria-hidden="true">◷</span>
+              <h3>Free Demo</h3>
+              <p>Meet and discuss your learning goals.</p>
+              <small>Takes &lt; 1 day</small>
+            </li>
+            <li class="step">
+              <span class="step-number" aria-hidden="true">04</span>
+              <span class="step-icon" aria-hidden="true">✓</span>
+              <h3>Start Tuition</h3>
+              <p>Start lessons with a plan that suits you.</p>
+              <small>Congratulations!</small>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-            <article class="service-card">
-              <div class="service-icon" aria-hidden="true">02</div>
-              <h2>Online Tutoring</h2>
-              <p>Learn remotely with flexible online lessons and guided practice.</p>
-              <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-            </article>
+      <section class="home-section" aria-labelledby="faq-title" data-animate="fade-up">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Common questions</span>
+            <h2 id="faq-title">Frequently asked questions</h2>
+          </div>
 
-            <article class="service-card">
-              <div class="service-icon" aria-hidden="true">03</div>
-              <h2>Exam Preparation</h2>
-              <p>Review key topics and work through practice for upcoming exams.</p>
-              <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-            </article>
+          <div class="accordion">
+            <details class="accordion-item">
+              <summary>How do I book a free demo?</summary>
+              <p class="accordion-answer">Send us a message with your learning needs and we’ll get in touch about the next step.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>Is the demo really free?</summary>
+              <p class="accordion-answer">Yes. The introductory demo is free. We’ll discuss your goals and suitable options.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>Can I choose home or online tutoring?</summary>
+              <p class="accordion-answer">Tell us which format you prefer and we’ll discuss available options for your needs.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>How are tutors verified?</summary>
+              <p class="accordion-answer">Tutor information is reviewed as part of our matching process. Ask us for details when you get in touch.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>How is the fee decided?</summary>
+              <p class="accordion-answer">Fees depend on the subject, level, schedule, and learning format. We’ll discuss details before lessons begin.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>Can I change my tutor?</summary>
+              <p class="accordion-answer">Contact us if your needs change and we’ll discuss the support options available.</p>
+            </details>
+          </div>
+        </div>
+      </section>
 
-            <article class="service-card">
-              <div class="service-icon" aria-hidden="true">04</div>
-              <h2>Subject Support</h2>
-              <p>Get help understanding topics across school, college, and more.</p>
-              <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-            </article>
-
-            <article class="service-card">
-              <div class="service-icon" aria-hidden="true">05</div>
-              <h2>Homework &amp; Study Skills</h2>
-              <p>Build good study habits and get clearer about challenging assignments.</p>
-              <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-            </article>
-
-            <article class="service-card">
-              <div class="service-icon" aria-hidden="true">06</div>
-              <h2>Academic Mentoring</h2>
-              <p>Get guidance to set learning goals, stay organized, and keep progressing.</p>
-              <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-            </article>
+      <section class="cta-band" aria-labelledby="services-cta-title" data-animate="fade-up">
+        <div class="container cta-band-content">
+          <div>
+            <h2 id="services-cta-title">Ready to get started?</h2>
+            <p>Tell us what you’re looking for and take the next step.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
           </div>
         </div>
       </section>
