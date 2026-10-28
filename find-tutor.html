@@ -3,8 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sir.G Tutors - Find Tutor</title>
+  <meta name="description" content="Search for a tutor with Sir.G Tutors.">
+  <title>Find a Tutor | Sir.G Tutors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="find-tutor-page">
+  <div class="page-loader" aria-hidden="true"><span class="loader-brand"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></span></div>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Sir.G Tutors home page"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <div class="nav-wrap" id="nav-menu">
+        <nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a class="active" href="find-tutor.html" aria-current="page">Find a Tutor</a><a href="contact.html">Contact</a></nav>
+        <div class="nav-actions"><a class="btn btn-login" href="login.html">Login</a><a class="btn btn-primary navbar-demo" href="contact.html">Book a Free Demo</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="tutor-search-header" aria-labelledby="find-tutor-title" data-animate="fade-up">
+      <span class="search-header-shape" aria-hidden="true"></span>
+      <div class="container tutor-search-header-inner">
+        <span class="eyebrow">Find a tutor</span>
+        <h1 id="find-tutor-title">Find the <span class="accent-text">right support</span></h1>
+        <form class="tutor-search-bar" id="tutor-search-form" role="search">
+          <input id="tutor-search-input" type="search" placeholder="Search subject or tutor name">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="tutor-results-section" aria-label="Tutor search results">
+      <div class="container">
+        <button class="mobile-filter-toggle" type="button" aria-expanded="false" aria-controls="tutor-filter-bar">Filters <span>＋</span></button>
+        <form class="tutor-filter-bar" id="tutor-filter-bar">
+          <div class="filter-control"><label for="subject-filter">Subject</label><select id="subject-filter"><option value="">All subjects</option><option>Mathematics</option><option>English</option><option>Science</option><option>Physics</option><option>Biology</option><option>Computer Science</option></select></div>
+          <div class="filter-control"><label for="level-filter">Level</label><select id="level-filter"><option value="">All levels</option><option>Primary</option><option>Middle</option><option>Matric</option><option>O/A Levels</option><option>University</option></select></div>
+          <div class="filter-control"><label for="city-filter">City/Area</label><select id="city-filter"><option value="">All locations</option><option>Lahore</option><option>Islamabad</option><option>Karachi</option><option>Rawalpindi</option></select></div>
+          <div class="filter-control"><label for="mode-filter">Mode</label><select id="mode-filter"><option value="">Any mode</option><option>Home</option><option>Online</option></select></div>
+          <div class="filter-control fee-control"><label for="fee-filter">Fee range <b id="fee-value">Up to Rs. 5,000</b></label><input id="fee-filter" type="range" min="1000" max="5000" step="500" value="5000"></div>
+          <button class="clear-filter" id="clear-filters" type="button">Clear filters</button>
+        </form>
+
+        <div class="tutor-search-layout">
+          <div class="tutor-results-column">
+            <div class="results-summary"><strong id="results-count">6 tutors</strong><span>matching your search</span></div>
+            <div class="tutor-results-list" id="tutor-results-list" aria-live="polite"></div>
+            <div class="empty-tutor-state" id="empty-tutor-state" hidden><span aria-hidden="true">⌕</span><h2>No tutors found</h2><p>Try changing your search or clearing a filter.</p><button class="btn" type="button" id="empty-clear">Clear filters</button></div>
+          </div>
+
+          <aside class="tutor-request-panel">
+            <span class="eyebrow">Need help deciding?</span>
+            <h2>Can't find the right tutor?</h2>
+            <p>Tell us what you need and we will help you find a suitable match.</p>
+            <form id="tutor-request-form" novalidate>
+              <div class="request-field"><label for="request-subject">Subject</label><input id="request-subject" name="subject" type="text" required><p class="request-error"></p></div>
+              <div class="request-field"><label for="request-level">Level</label><select id="request-level" name="level" required><option value="">Choose a level</option><option>Primary</option><option>Middle</option><option>Matric</option><option>O/A Levels</option><option>University</option></select><p class="request-error"></p></div>
+              <div class="request-field"><label for="request-city">City</label><input id="request-city" name="city" type="text" required><p class="request-error"></p></div>
+              <div class="request-field"><label for="request-details">Details</label><textarea id="request-details" name="details" rows="3" required></textarea><p class="request-error"></p></div>
+              <div class="request-field"><label for="request-phone">Phone</label><input id="request-phone" name="phone" type="tel" required><p class="request-error"></p></div>
+              <button class="btn request-submit" type="submit">Post a Request</button>
+              <p class="request-success" role="status"></p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><h3>Sir.G <span class="accent-text-light">Tutors</span></h3><p>Helping students grow with confidence through personal, practical learning support.</p></div>
+      <div class="footer-column"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a></div>
+      <div class="footer-column"><h4>Resources</h4><a href="find-tutor.html">Find a Tutor</a><a href="contact.html">Contact</a><a href="login.html">Login</a></div>
+      <div class="footer-column"><h4>Contact</h4><p>Email: hello@sirg-tutors.com</p><p>Phone: +92 300 000 0000</p><p>Location: Lahore, Pakistan</p></div>
+    </div>
+    <div class="container footer-bottom">© 2026 Sir.G Tutors. All rights reserved.</div>
+  </footer>
+
+  <script src="js/animations.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navToggle = document.querySelector(".nav-toggle");
+      const navWrap = document.querySelector(".nav-wrap");
+      if (navToggle && navWrap) navToggle.addEventListener("click", function () { const open = navWrap.classList.toggle("open"); navToggle.setAttribute("aria-expanded", String(open)); });
+
+      const mobileFilterToggle = document.querySelector(".mobile-filter-toggle");
+      const filterBar = document.querySelector(".tutor-filter-bar");
+      mobileFilterToggle.addEventListener("click", function () { const open = filterBar.classList.toggle("open"); mobileFilterToggle.setAttribute("aria-expanded", String(open)); mobileFilterToggle.querySelector("span").textContent = open ? "−" : "＋"; });
+
+      // All tutor names and details below are clearly marked sample data for design preview only.
+      const tutors = [
+        { name: "Ayesha Khan", subjects: ["Mathematics", "Physics"], level: "Matric", city: "Lahore", area: "DHA", mode: "Home", fee: 2500, experience: 6, bio: "Makes difficult concepts simple with practical examples." },
+        { name: "Hamza Ali", subjects: ["English", "Mathematics"], level: "O/A Levels", city: "Islamabad", area: "G-11", mode: "Online", fee: 3000, experience: 8, bio: "Patient exam-focused support for confident independent learning." },
+        { name: "Sara Malik", subjects: ["Science", "Biology"], level: "Middle", city: "Rawalpindi", area: "Satellite Town", mode: "Both", fee: 2200, experience: 5, bio: "Friendly science lessons built around curiosity and clear notes." },
+        { name: "Usman Tariq", subjects: ["Computer Science", "Mathematics"], level: "University", city: "Lahore", area: "Gulberg", mode: "Online", fee: 4500, experience: 10, bio: "Practical programming and mathematics guidance for higher studies." },
+        { name: "Mariam Javed", subjects: ["Physics", "Science"], level: "Matric", city: "Karachi", area: "Clifton", mode: "Home", fee: 3500, experience: 7, bio: "Structured preparation that helps students understand and revise effectively." },
+        { name: "Bilal Raza", subjects: ["English"], level: "Primary", city: "Karachi", area: "Gulshan", mode: "Online", fee: 1800, experience: 4, bio: "Playful reading and writing sessions designed for younger learners." }
+      ];
+
+      const list = document.querySelector("#tutor-results-list");
+      const emptyState = document.querySelector("#empty-tutor-state");
+      const count = document.querySelector("#results-count");
+      const searchInput = document.querySelector("#tutor-search-input");
+      const subjectFilter = document.querySelector("#subject-filter");
+      const levelFilter = document.querySelector("#level-filter");
+      const cityFilter = document.querySelector("#city-filter");
+      const modeFilter = document.querySelector("#mode-filter");
+      const feeFilter = document.querySelector("#fee-filter");
+      const feeValue = document.querySelector("#fee-value");
+
+      function initials(name) { return name.split(" ").map(function (part) { return part[0]; }).join("").slice(0,2).toUpperCase(); }
+      function escapeHtml(value) { const span = document.createElement("span"); span.textContent = value; return span.innerHTML; }
+
+      function renderTutors() {
+        const search = searchInput.value.trim().toLowerCase();
+        const subject = subjectFilter.value;
+        const level = levelFilter.value;
+        const city = cityFilter.value;
+        const mode = modeFilter.value;
+        const maxFee = Number(feeFilter.value);
+        feeValue.textContent = "Up to Rs. " + maxFee.toLocaleString();
+
+        const matches = tutors.filter(function (tutor) {
+          const searchable = (tutor.name + " " + tutor.subjects.join(" ")).toLowerCase();
+          return (!search || searchable.includes(search)) && (!subject || tutor.subjects.includes(subject)) && (!level || tutor.level === level) && (!city || tutor.city === city) && (!mode || tutor.mode === mode || tutor.mode === "Both") && tutor.fee <= maxFee;
+        });
+
+        count.textContent = matches.length + (matches.length === 1 ? " tutor" : " tutors");
+        list.innerHTML = matches.map(function (tutor, index) {
+          return '<article class="tutor-result-row" style="--row-delay:' + (index * 100) + 'ms"><div class="tutor-avatar">' + escapeHtml(initials(tutor.name)) + '</div><div class="tutor-row-main"><div class="tutor-name-line"><h2>' + escapeHtml(tutor.name) + '</h2><span class="verified-badge" title="Sample verified tutor" aria-label="Verified sample tutor">✓</span></div><div class="subject-chips">' + tutor.subjects.map(function (item) { return '<span>' + escapeHtml(item) + '</span>'; }).join("") + '</div><p class="tutor-bio">' + escapeHtml(tutor.bio) + '</p><div class="tutor-meta"><span>' + escapeHtml(tutor.level) + '</span><span>' + escapeHtml(tutor.city + ', ' + tutor.area) + '</span><span>' + escapeHtml(tutor.mode) + '</span><span>' + tutor.experience + ' years</span></div></div><div class="tutor-row-action"><strong>Rs. ' + tutor.fee.toLocaleString() + '<small>/hour</small></strong><a class="btn tutor-demo-button" href="contact.html">Request a Free Demo</a><p>Contact details stay private until you start</p></div></article>';
+        }).join("");
+        emptyState.hidden = matches.length !== 0;
+        list.hidden = matches.length === 0;
+
+        const rows = list.querySelectorAll(".tutor-result-row");
+        rows.forEach(function (row) { row.classList.add("row-visible"); });
+      }
+
+      [searchInput, subjectFilter, levelFilter, cityFilter, modeFilter, feeFilter].forEach(function (control) { control.addEventListener("input", renderTutors); control.addEventListener("change", renderTutors); });
+      document.querySelector("#tutor-search-form").addEventListener("submit", function (event) { event.preventDefault(); renderTutors(); });
+
+      function clearFilters() { searchInput.value = ""; subjectFilter.value = ""; levelFilter.value = ""; cityFilter.value = ""; modeFilter.value = ""; feeFilter.value = "5000"; renderTutors(); }
+      document.querySelector("#clear-filters").addEventListener("click", clearFilters);
+      document.querySelector("#empty-clear").addEventListener("click", clearFilters);
+
+      const requestForm = document.querySelector("#tutor-request-form");
+      const requestSuccess = requestForm.querySelector(".request-success");
+      requestForm.querySelectorAll("input, select, textarea").forEach(function (field) { field.addEventListener("input", function () { field.parentElement.querySelector(".request-error").textContent = ""; requestSuccess.textContent = ""; }); });
+      requestForm.addEventListener("submit", function (event) {
+        event.preventDefault(); let firstInvalid = null; requestSuccess.textContent = "";
+        requestForm.querySelectorAll("[required]").forEach(function (field) { const error = field.parentElement.querySelector(".request-error"); error.textContent = ""; if (!field.value.trim()) { error.textContent = "This field is required."; firstInvalid = firstInvalid || field; } });
+        if (firstInvalid) { firstInvalid.focus(); return; }
+        requestSuccess.textContent = "Thank you! Your request has been noted.";
+        requestForm.reset();
+      });
+
+      renderTutors();
+    });
+  </script>
 </body>
 </html>

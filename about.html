@@ -82,127 +82,6 @@
         box-shadow: var(--shadow);
       }
 
-      .about-page .mission-vision {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--space-lg);
-      }
-
-      .about-page .mission-vision article + article {
-        border-left: 1px solid var(--border);
-        padding-left: var(--space-lg);
-      }
-
-      .about-page .mission-vision-mark {
-        display: block;
-        margin-bottom: var(--space-xs);
-        color: var(--orange);
-        font-size: 3.5rem;
-        font-weight: 800;
-        line-height: 1;
-      }
-
-      .about-page .mission-vision h2 {
-        font-size: clamp(1.5rem, 2.5vw, 2rem);
-      }
-
-      .about-page .mission-vision p {
-        max-width: 500px;
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .about-page .timeline {
-        position: relative;
-        display: grid;
-        gap: var(--space-md);
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 0 0 0 var(--space-lg);
-        list-style: none;
-      }
-
-      .about-page .timeline::before {
-        content: "";
-        position: absolute;
-        top: 12px;
-        bottom: 12px;
-        left: 10px;
-        border-left: 2px solid var(--border);
-      }
-
-      .about-page .timeline li {
-        position: relative;
-      }
-
-      .about-page .timeline li::before {
-        content: "";
-        position: absolute;
-        top: 5px;
-        left: calc(-1 * var(--space-lg) + 3px);
-        width: 16px;
-        height: 16px;
-        border: 3px solid var(--page-bg);
-        border-radius: 50%;
-        background: var(--orange);
-        box-shadow: 0 0 0 2px var(--yellow);
-      }
-
-      .about-page .timeline-year {
-        display: block;
-        margin-bottom: 4px;
-        color: var(--red);
-        font-weight: 800;
-      }
-
-      .about-page .timeline h3 {
-        margin-bottom: 4px;
-      }
-
-      .about-page .timeline p {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .about-page .values-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--space-md) var(--space-lg);
-      }
-
-      .about-page .values-list li {
-        display: grid;
-        grid-template-columns: 40px minmax(0, 1fr);
-        column-gap: var(--space-sm);
-        align-items: start;
-        padding: 0;
-      }
-
-      .about-page .values-list li::before {
-        display: none;
-      }
-
-      .about-page .value-icon {
-        display: grid;
-        grid-row: span 2;
-        width: 36px;
-        height: 36px;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--soft-yellow);
-        color: var(--navy);
-        font-weight: 800;
-      }
-
-      .about-page .value-title {
-        margin: 0 0 4px;
-        font-weight: 800;
-      }
-
-      .about-page .value-description {
-        margin: 0;
-        color: var(--muted);
-      }
-
       .about-page .cta-band-content {
         justify-content: center;
         text-align: center;
@@ -218,22 +97,6 @@
       }
 
       @media (max-width: 540px) {
-        .about-page .mission-vision,
-        .about-page .values-list {
-          grid-template-columns: 1fr;
-        }
-
-        .about-page .mission-vision {
-          gap: var(--space-md);
-        }
-
-        .about-page .mission-vision article + article {
-          border-top: 1px solid var(--border);
-          border-left: 0;
-          padding-top: var(--space-md);
-          padding-left: 0;
-        }
-
         .about-page .stat-strip-inner {
           align-items: flex-start;
           flex-direction: column;
@@ -356,15 +219,17 @@
 
       <section class="home-section" aria-label="Our mission and vision" data-animate="fade-up">
         <div class="container mission-vision">
-          <article>
-            <span class="mission-vision-mark" aria-hidden="true">Our Mission</span>
+          <article class="mission-panel">
+            <span class="mission-vision-icon mission-icon" aria-hidden="true">01</span>
+            <h2>Our Mission</h2>
             <p>
               Make useful, supportive tutoring easier to discover for students
               and families.
             </p>
           </article>
-          <article>
-            <span class="mission-vision-mark" aria-hidden="true">Our Vision</span>
+          <article class="vision-panel">
+            <span class="mission-vision-icon vision-icon" aria-hidden="true">✦</span>
+            <h2>Our Vision</h2>
             <p>
               Help every student find a clear path to grow their knowledge,
               confidence, and skills.
@@ -373,99 +238,82 @@
         </div>
       </section>
 
-      <section class="home-section" aria-labelledby="timeline-title" data-animate="fade-up">
+      <section class="home-section journey-section" aria-labelledby="timeline-title" data-animate="fade-up">
         <div class="container">
-          <div class="section-heading">
-            <span class="eyebrow">Our journey</span>
-            <h2 id="timeline-title">A story still being written.</h2>
-            <p>These are placeholders for milestones you can update later.</p>
+          <div class="section-heading journey-heading">
+            <h2 id="timeline-title">Our <span>journey</span></h2>
+            <p>How we got here</p>
           </div>
 
           <ol class="timeline">
-            <li>
-              <span class="timeline-year">20XX</span>
-              <h3>A learning idea takes shape</h3>
-              <p>Placeholder milestone: add the beginning of your story.</p>
+            <li class="timeline-entry timeline-entry-left">
+              <article class="timeline-card">
+                <span class="timeline-year">2010</span>
+                <h3>The idea begins</h3>
+                <p>Sir.G Tutors started with a simple goal to make quality tutoring easier to find.</p>
+              </article>
             </li>
-            <li>
-              <span class="timeline-year">20XX</span>
-              <h3>Building a welcoming tutor community</h3>
-              <p>Placeholder milestone: describe an important next step.</p>
+            <li class="timeline-entry timeline-entry-right">
+              <article class="timeline-card">
+                <span class="timeline-year">2014</span>
+                <h3>A community takes shape</h3>
+                <p>Students and families began connecting with dedicated tutors across more subjects.</p>
+              </article>
             </li>
-            <li>
-              <span class="timeline-year">20XX</span>
-              <h3>Helping more students reach their goals</h3>
-              <p>Placeholder milestone: add a meaningful achievement.</p>
+            <li class="timeline-entry timeline-entry-left">
+              <article class="timeline-card">
+                <span class="timeline-year">2018</span>
+                <h3>Learning support grows</h3>
+                <p>New resources helped tutors deliver clearer guidance and more personal learning plans.</p>
+              </article>
             </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="home-section" aria-labelledby="about-steps-title" data-animate="fade-up">
-        <div class="container">
-          <div class="section-heading">
-            <span class="eyebrow">How we work</span>
-            <h2 id="about-steps-title">Four simple steps to get started.</h2>
-          </div>
-
-          <ol class="steps-flow">
-            <li class="step">
-              <span class="step-number" aria-hidden="true">01</span>
-              <span class="step-icon" aria-hidden="true">＋</span>
-              <h3>Register</h3>
-              <p>Set up your account to begin.</p>
-              <small>Takes few seconds</small>
+            <li class="timeline-entry timeline-entry-right">
+              <article class="timeline-card">
+                <span class="timeline-year">2022</span>
+                <h3>More students reached</h3>
+                <p>Online and in-person tutoring opened new paths for learners to build confidence.</p>
+              </article>
             </li>
-            <li class="step">
-              <span class="step-number" aria-hidden="true">02</span>
-              <span class="step-icon" aria-hidden="true">✎</span>
-              <h3>Create Request</h3>
-              <p>Share the subject and support you need.</p>
-              <small>Takes 1 min</small>
-            </li>
-            <li class="step">
-              <span class="step-number" aria-hidden="true">03</span>
-              <span class="step-icon" aria-hidden="true">◷</span>
-              <h3>Free Demo</h3>
-              <p>Meet and discuss your learning goals.</p>
-              <small>Takes &lt; 1 day</small>
-            </li>
-            <li class="step">
-              <span class="step-number" aria-hidden="true">04</span>
-              <span class="step-icon" aria-hidden="true">✓</span>
-              <h3>Start Tuition</h3>
-              <p>Start lessons with a plan that suits you.</p>
-              <small>Congratulations!</small>
+            <li class="timeline-entry timeline-entry-left">
+              <article class="timeline-card">
+                <span class="timeline-year">2026</span>
+                <h3>A stronger learning future</h3>
+                <p>The platform continues to connect every student with the support they need to grow.</p>
+              </article>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="home-section" aria-labelledby="values-title" data-animate="fade-up">
+      <section class="home-section values-section" aria-labelledby="values-title" data-animate="fade-up">
         <div class="container">
           <div class="section-heading">
-            <span class="eyebrow">What guides us</span>
+            <span class="eyebrow">WHAT GUIDES US</span>
             <h2 id="values-title">Our values</h2>
           </div>
 
           <ul class="feature-list values-list">
-            <li>
+            <li class="value-card value-card-yellow">
               <span class="value-icon" aria-hidden="true">✓</span>
+              <span class="value-number" aria-hidden="true">01</span>
               <span class="value-title">Student first</span>
               <p class="value-description">We listen to each learner’s needs and goals.</p>
             </li>
-            <li>
+            <li class="value-card value-card-orange">
               <span class="value-icon" aria-hidden="true">◇</span>
+              <span class="value-number" aria-hidden="true">02</span>
               <span class="value-title">Clear guidance</span>
               <p class="value-description">We keep the next steps simple and understandable.</p>
             </li>
-            <li>
+            <li class="value-card value-card-cream">
               <span class="value-icon" aria-hidden="true">✦</span>
+              <span class="value-number" aria-hidden="true">03</span>
               <span class="value-title">Keep growing</span>
               <p class="value-description">We encourage curiosity, effort, and progress.</p>
             </li>
-            <li>
+            <li class="value-card value-card-blue">
               <span class="value-icon" aria-hidden="true">♡</span>
+              <span class="value-number" aria-hidden="true">04</span>
               <span class="value-title">Respect and care</span>
               <p class="value-description">We aim to make every learning connection welcoming.</p>
             </li>
@@ -532,6 +380,52 @@
         © 2026 Sir.G Tutors. All rights reserved.
       </div>
     </footer>
+    <script>
+      const timelineEntries = document.querySelectorAll(".timeline-entry");
+      const valueCards = document.querySelectorAll(".value-card");
+
+      if (
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        !("IntersectionObserver" in window)
+      ) {
+        timelineEntries.forEach((entry) => entry.classList.add("is-visible"));
+        valueCards.forEach((card) => card.classList.add("is-visible"));
+      } else {
+        const timelineObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+
+        timelineEntries.forEach((entry) => timelineObserver.observe(entry));
+
+        const valuesObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                valueCards.forEach((card, index) => {
+                  card.style.setProperty("--value-delay", `${index * 120}ms`);
+                  card.classList.add("is-visible");
+                });
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        const valuesSection = document.querySelector(".values-section");
+        if (valuesSection) {
+          valuesObserver.observe(valuesSection);
+        }
+      }
+    </script>
     <script src="js/animations.js" defer></script>
   </body>
 </html>

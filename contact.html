@@ -15,8 +15,344 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .contact-page {
+        --contact-red: #f95738;
+      }
+
+      .contact-page .section {
+        padding: clamp(32px, 5vw, 48px) 0;
+      }
+
+      .contact-page .contact-header {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-page .contact-header-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-page .contact-header h1 {
+        max-width: 700px;
+        margin: 8px auto 12px;
+        font-size: clamp(2.2rem, 5vw, 3.9rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .contact-page .contact-header p {
+        margin-bottom: 20px;
+        color: var(--muted);
+      }
+
+      .contact-page .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .contact-page .action-pill {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--navy);
+        font-weight: 800;
+        box-shadow: 0 8px 20px rgba(13, 59, 102, 0.08);
+      }
+
+      .contact-page .action-pill-whatsapp {
+        border-color: #25d366;
+        background: #25d366;
+        color: white;
+      }
+
+      .contact-page .header-shape {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 48% 52% 58% 42%;
+        background: linear-gradient(135deg, rgba(244, 211, 94, 0.5), rgba(238, 150, 75, 0.32));
+        transform: rotate(-18deg);
+        right: -70px;
+        top: -95px;
+      }
+
+      .contact-page .contact-main-grid {
+        display: grid;
+        grid-template-columns: minmax(250px, 0.75fr) minmax(0, 1.25fr);
+        gap: clamp(32px, 6vw, 72px);
+        align-items: start;
+      }
+
+      .contact-page .contact-rows {
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-page .contact-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        padding: 12px 14px 12px 18px;
+        border-radius: 14px;
+        background: var(--white);
+        box-shadow: 0 10px 24px rgba(13, 59, 102, 0.07);
+      }
+
+      .contact-page .contact-row::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        left: 0;
+        width: 5px;
+        border-radius: 0 5px 5px 0;
+        background: var(--yellow);
+      }
+
+      .contact-page .contact-row:nth-child(2)::before { background: var(--orange); }
+      .contact-page .contact-row:nth-child(3)::before { background: var(--red); }
+      .contact-page .contact-row:nth-child(4)::before { background: var(--yellow); }
+
+      .contact-page .contact-icon {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--soft-yellow);
+        color: var(--navy);
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+
+      .contact-page .contact-row strong {
+        display: block;
+        color: var(--navy);
+      }
+
+      .contact-page .contact-row a,
+      .contact-page .contact-row span {
+        color: var(--muted);
+      }
+
+      .contact-page .reply-note {
+        margin: 14px 0 0;
+        color: var(--navy);
+        font-weight: 700;
+      }
+
+      .contact-page .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 24px;
+      }
+
+      .contact-page .floating-field {
+        position: relative;
+        min-width: 0;
+      }
+
+      .contact-page .floating-field-full {
+        grid-column: 1 / -1;
+      }
+
+      .contact-page .floating-field input,
+      .contact-page .floating-field select,
+      .contact-page .floating-field textarea {
+        width: 100%;
+        min-height: 54px;
+        border: 0;
+        border-bottom: 2px solid rgba(13, 59, 102, 0.24);
+        border-radius: 0;
+        background: transparent;
+        color: var(--navy);
+        font: inherit;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      .contact-page .floating-field textarea {
+        min-height: 96px;
+        resize: vertical;
+        padding-top: 22px;
+      }
+
+      .contact-page .floating-field label {
+        position: absolute;
+        left: 0;
+        top: 16px;
+        color: var(--muted);
+        pointer-events: none;
+        transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+      }
+
+      .contact-page .floating-field select + label {
+        top: -5px;
+        font-size: 0.78rem;
+      }
+
+      .contact-page .floating-field input:focus,
+      .contact-page .floating-field select:focus,
+      .contact-page .floating-field textarea:focus {
+        border-bottom-color: var(--yellow);
+        box-shadow: 0 2px 0 var(--yellow);
+      }
+
+      .contact-page .floating-field input:focus + label,
+      .contact-page .floating-field input:not(:placeholder-shown) + label,
+      .contact-page .floating-field textarea:focus + label,
+      .contact-page .floating-field textarea:not(:placeholder-shown) + label {
+        top: -5px;
+        color: var(--navy);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .contact-page .field-error {
+        min-height: 18px;
+        margin-top: 4px;
+        color: var(--red);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .contact-page .form-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .contact-page .form-submit {
+        border: 0;
+        background: var(--contact-red);
+        color: white;
+      }
+
+      .contact-page .form-success {
+        margin: 0;
+        color: var(--navy);
+        font-weight: 800;
+      }
+
+      .contact-page .map-placeholder {
+        display: grid;
+        min-height: 280px;
+        place-items: center;
+        border-radius: 24px;
+        background: linear-gradient(135deg, var(--soft-yellow), rgba(238, 150, 75, 0.22));
+        color: var(--navy);
+        text-align: center;
+      }
+
+      .contact-page .map-pin {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 2.4rem;
+      }
+
+      .contact-page .accordion {
+        max-width: 850px;
+        margin: 0 auto;
+        border-top: 1px solid var(--border);
+      }
+
+      .contact-page .accordion-item {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .contact-page .accordion-item summary {
+        position: relative;
+        padding: 16px 36px 16px 0;
+        color: var(--navy);
+        font-weight: 800;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .contact-page .accordion-item summary::-webkit-details-marker { display: none; }
+
+      .contact-page .accordion-item summary::after {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        right: 4px;
+        color: var(--red);
+        font-size: 1.5rem;
+        transform: translateY(-50%);
+      }
+
+      .contact-page .accordion-item[open] summary::after { content: "−"; }
+      .contact-page .accordion-answer { margin: 0; padding: 0 36px 16px 0; color: var(--muted); }
+
+      .contact-page .contact-cta {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .contact-page .contact-cta .btn {
+        border: 0;
+        background: var(--contact-red);
+        color: white;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        z-index: 1000;
+        right: 20px;
+        bottom: 20px;
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        border-radius: 50%;
+        background: #25d366;
+        color: white;
+        font-size: 1.65rem;
+        font-weight: 800;
+        box-shadow: 0 12px 28px rgba(37, 211, 102, 0.32);
+        animation: whatsapp-pulse 2.2s infinite;
+      }
+
+      @keyframes whatsapp-pulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.32); }
+        50% { transform: scale(1.06); box-shadow: 0 12px 34px rgba(37, 211, 102, 0.48); }
+      }
+
+      @media (max-width: 860px) {
+        .contact-page .contact-main-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 540px) {
+        .contact-page .contact-form { grid-template-columns: 1fr; }
+        .contact-page .floating-field-full,
+        .contact-page .form-actions { grid-column: 1; }
+        .contact-page .form-actions { align-items: stretch; flex-direction: column; }
+        .contact-page .contact-actions { align-items: stretch; flex-direction: column; }
+        .contact-page .action-pill { width: 100%; }
+        .whatsapp-float { right: 14px; bottom: 14px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .whatsapp-float { animation: none; }
+      }
+    </style>
   </head>
-  <body>
+  <body class="contact-page">
     <div class="page-loader" aria-hidden="true">
       <span class="loader-brand">
         <span class="brand-main">Sir.G</span>
@@ -55,65 +391,155 @@
     </header>
 
     <main>
-      <section class="section" aria-labelledby="contact-title">
+      <section class="section contact-header" aria-labelledby="contact-title" data-animate="fade-up">
+        <span class="header-shape" aria-hidden="true"></span>
         <div class="container">
-          <div class="section-heading">
-            <span class="eyebrow">Contact Us</span>
-            <h1 id="contact-title">Let’s talk about your <span class="accent-text">learning goals</span>.</h1>
-            <p>Reach out with a question or tell us what kind of tutoring support you are looking for.</p>
-          </div>
-
-          <div class="stats-grid">
-            <article class="service-card">
-              <div class="service-icon" aria-hidden="true">✉</div>
-              <h2>Contact details</h2>
-              <p>
-                <strong>Email</strong><br />
-                <a href="mailto:hello@sirg-tutors.com">hello@sirg-tutors.com</a>
-              </p>
-              <p>
-                <strong>Phone</strong><br />
-                <a href="tel:+923000000000">+92 300 000 0000</a>
-              </p>
-              <p>
-                <strong>Location</strong><br />
-                Lahore, Pakistan
-              </p>
-            </article>
-
-            <article class="service-card">
-              <h2>Send us a message</h2>
-              <p>Share a few details and we can learn more about what you need.</p>
-
-              <form class="contact-form" aria-describedby="form-note">
-                <label>
-                  Name
-                  <input type="text" name="name" autocomplete="name" required />
-                </label>
-
-                <label>
-                  Email
-                  <input type="email" name="email" autocomplete="email" required />
-                </label>
-
-                <label>
-                  Phone <span>(optional)</span>
-                  <input type="tel" name="phone" autocomplete="tel" />
-                </label>
-
-                <label>
-                  Message
-                  <textarea name="message" rows="5" required></textarea>
-                </label>
-
-                <button class="btn btn-primary" type="button">Send message</button>
-                <p id="form-note">This form is a visual preview and does not submit yet.</p>
-              </form>
-            </article>
+          <div class="contact-header-inner">
+            <span class="eyebrow">Get in touch</span>
+            <h1 id="contact-title">We'd love to <span class="accent-text">hear from you</span></h1>
+            <p>Ask a question, share your learning goals, or start planning your next lesson.</p>
+            <div class="contact-actions" aria-label="Quick contact actions">
+              <a class="action-pill" href="tel:+923XXXXXXXXX">Call Us</a>
+              <a class="action-pill action-pill-whatsapp" href="https://wa.me/923XXXXXXXXX" target="_blank" rel="noopener">WhatsApp Us</a>
+              <a class="action-pill" href="mailto:info@example.com">Email Us</a>
+            </div>
           </div>
         </div>
       </section>
+
+      <section class="section" aria-label="Contact information and form" data-animate="fade-up">
+        <div class="container contact-main-grid">
+          <aside>
+            <div class="contact-rows">
+              <div class="contact-row">
+                <span class="contact-icon" aria-hidden="true">☎</span>
+                <div>
+                  <strong>Phone/WhatsApp</strong>
+                  <a href="tel:+923XXXXXXXXX">03XX XXXXXXX</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <span class="contact-icon" aria-hidden="true">✉</span>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:info@example.com">info@example.com</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <span class="contact-icon" aria-hidden="true">⌖</span>
+                <div>
+                  <strong>Address</strong>
+                  <span>Your city, Pakistan</span>
+                </div>
+              </div>
+              <div class="contact-row">
+                <span class="contact-icon" aria-hidden="true">◷</span>
+                <div>
+                  <strong>Working hours</strong>
+                  <span>Mon-Sat, 9:00 AM - 6:00 PM</span>
+                </div>
+              </div>
+            </div>
+            <p class="reply-note">We usually reply within 24 hours.</p>
+          </aside>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="floating-field">
+              <input id="full-name" name="fullName" type="text" placeholder=" " autocomplete="name" required />
+              <label for="full-name">Full name</label>
+              <p class="field-error" id="full-name-error" aria-live="polite"></p>
+            </div>
+
+            <div class="floating-field">
+              <input id="email" name="email" type="email" placeholder=" " autocomplete="email" required />
+              <label for="email">Email</label>
+              <p class="field-error" id="email-error" aria-live="polite"></p>
+            </div>
+
+            <div class="floating-field">
+              <input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" />
+              <label for="phone">Phone</label>
+              <p class="field-error" id="phone-error" aria-live="polite"></p>
+            </div>
+
+            <div class="floating-field">
+              <select id="role" name="role" required>
+                <option value="" selected disabled></option>
+                <option value="Student">Student</option>
+                <option value="Parent">Parent</option>
+                <option value="Tutor">Tutor</option>
+              </select>
+              <label for="role">I am a</label>
+              <p class="field-error" id="role-error" aria-live="polite"></p>
+            </div>
+
+            <div class="floating-field floating-field-full">
+              <input id="subject" name="subject" type="text" placeholder=" " required />
+              <label for="subject">Subject</label>
+              <p class="field-error" id="subject-error" aria-live="polite"></p>
+            </div>
+
+            <div class="floating-field floating-field-full">
+              <textarea id="message" name="message" placeholder=" " required></textarea>
+              <label for="message">Message</label>
+              <p class="field-error" id="message-error" aria-live="polite"></p>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn form-submit" type="submit">Send Message</button>
+              <p class="form-success" id="form-success" role="status"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Map" data-animate="fade-up">
+        <div class="container">
+          <div class="map-placeholder">
+            <div>
+              <span class="map-pin" aria-hidden="true">⌖</span>
+              <strong>Map will be added here</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title" data-animate="fade-up">
+        <div class="container">
+          <div class="section-heading" style="text-align: center; margin-left: auto; margin-right: auto;">
+            <span class="eyebrow">Questions</span>
+            <h2 id="faq-title">Frequently asked questions</h2>
+          </div>
+          <div class="accordion">
+            <details class="accordion-item">
+              <summary>How fast will you reply?</summary>
+              <p class="accordion-answer">We aim to respond within 24 hours during our working days.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>Can I book a free demo from here?</summary>
+              <p class="accordion-answer">Yes. Send us your details and we will help arrange a free demonstration.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>How do I become a tutor?</summary>
+              <p class="accordion-answer">Contact us with your subject experience and qualifications, and our team will guide you.</p>
+            </details>
+            <details class="accordion-item">
+              <summary>Do you offer online classes?</summary>
+              <p class="accordion-answer">Yes. We can discuss online learning options that fit your schedule and goals.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="contact-cta-title" data-animate="fade-up">
+        <div class="container cta-band-content contact-cta">
+          <h2 id="contact-cta-title">Ready to start learning?</h2>
+          <a class="btn" href="#contact-form">Book a Free Demo</a>
+        </div>
+      </section>
     </main>
+
+    <a class="whatsapp-float" href="https://wa.me/923XXXXXXXXX" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">◉</a>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -124,6 +550,68 @@
           toggle.addEventListener("click", function () {
             const isOpen = navWrap.classList.toggle("open");
             toggle.setAttribute("aria-expanded", String(isOpen));
+          });
+        }
+
+        const form = document.querySelector("#contact-form");
+        const successMessage = document.querySelector("#form-success");
+
+        if (form) {
+          const fields = {
+            "full-name": "Please enter your full name.",
+            "email": "Please enter your email.",
+            "role": "Please choose who you are.",
+            "subject": "Please enter a subject.",
+            "message": "Please enter your message."
+          };
+
+          function showError(field, message) {
+            document.querySelector("#" + field.id + "-error").textContent = message;
+            field.setAttribute("aria-invalid", "true");
+          }
+
+          function clearError(field) {
+            document.querySelector("#" + field.id + "-error").textContent = "";
+            field.removeAttribute("aria-invalid");
+          }
+
+          Object.keys(fields).forEach(function (fieldId) {
+            const field = document.querySelector("#" + fieldId);
+            field.addEventListener("input", function () {
+              clearError(field);
+              successMessage.textContent = "";
+            });
+          });
+
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let firstInvalidField = null;
+            successMessage.textContent = "";
+
+            Object.keys(fields).forEach(function (fieldId) {
+              const field = document.querySelector("#" + fieldId);
+              clearError(field);
+
+              if (!field.value.trim()) {
+                showError(field, fields[fieldId]);
+                if (!firstInvalidField) firstInvalidField = field;
+              }
+            });
+
+            const emailField = document.querySelector("#email");
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailField.value.trim() && !emailPattern.test(emailField.value.trim())) {
+              showError(emailField, "Please enter a valid email address.");
+              if (!firstInvalidField) firstInvalidField = emailField;
+            }
+
+            if (firstInvalidField) {
+              firstInvalidField.focus();
+              return;
+            }
+
+            successMessage.textContent = "Thank you, we will contact you soon";
+            form.reset();
           });
         }
       });

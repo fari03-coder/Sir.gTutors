@@ -3,8 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sir.G Tutors - Signup</title>
+  <meta name="description" content="Create a Sir.G Tutors account.">
+  <title>Sign Up | Sir.G Tutors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="auth-page">
+  <div class="page-loader" aria-hidden="true">
+    <span class="loader-brand"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></span>
+  </div>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Sir.G Tutors home page"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <div class="nav-wrap" id="nav-menu">
+        <nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="find-tutor.html">Find a Tutor</a><a href="contact.html">Contact</a></nav>
+        <div class="nav-actions"><a class="btn btn-login active-auth" href="login.html" aria-current="page">Login</a><a class="btn btn-primary navbar-demo" href="contact.html">Book a Free Demo</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-layout" data-animate="fade-up">
+      <section class="auth-panel" aria-label="Join Sir.G Tutors">
+        <span class="auth-shape-one" aria-hidden="true"></span><span class="auth-shape-two" aria-hidden="true"></span>
+        <div class="auth-panel-content">
+          <h1>Join Sir.G Tutors</h1>
+          <ul class="auth-benefits"><li>Connect with trusted learning support</li><li>Share your goals and find the right help</li><li>Build confidence through every lesson</li></ul>
+        </div>
+      </section>
+
+      <section class="auth-form-side" aria-labelledby="signup-title">
+        <div class="auth-form-wrap">
+          <h2 id="signup-title">Create your account</h2>
+          <form class="auth-form" id="signup-form" novalidate>
+            <div class="floating-field"><input id="signup-name" name="fullName" type="text" placeholder=" " autocomplete="name" required><label for="signup-name">Full name</label><p class="field-error" id="signup-name-error" aria-live="polite"></p></div>
+            <div class="floating-field"><input id="signup-email" name="email" type="email" placeholder=" " autocomplete="email" required><label for="signup-email">Email</label><p class="field-error" id="signup-email-error" aria-live="polite"></p></div>
+            <div class="floating-field"><input id="signup-phone" name="phone" type="tel" placeholder=" " autocomplete="tel" required><label for="signup-phone">Phone</label><p class="field-error" id="signup-phone-error" aria-live="polite"></p></div>
+
+            <fieldset style="border:0;padding:0;margin:0"><legend style="margin-bottom:8px;color:var(--navy);font-weight:800">I am a</legend><div class="role-selector"><input id="role-student" type="radio" name="role" value="Student/Parent" checked><label for="role-student">I'm a Student/Parent</label><input id="role-tutor" type="radio" name="role" value="Tutor"><label for="role-tutor">I'm a Tutor</label></div></fieldset>
+
+            <div class="floating-field"><input id="signup-password" name="password" type="password" placeholder=" " autocomplete="new-password" required><label for="signup-password">Password</label><button class="password-toggle" type="button" aria-label="Show password" aria-controls="signup-password">Show</button><div class="strength-wrap" aria-label="Password strength"><span class="strength-bar"></span><span class="strength-bar"></span><span class="strength-bar"></span><span class="strength-bar"></span></div><p class="field-error" id="signup-password-error" aria-live="polite"></p></div>
+            <div class="floating-field"><input id="signup-confirm" name="confirmPassword" type="password" placeholder=" " autocomplete="new-password" required><label for="signup-confirm">Confirm password</label><button class="password-toggle" type="button" aria-label="Show confirm password" aria-controls="signup-confirm">Show</button><p class="field-error" id="signup-confirm-error" aria-live="polite"></p></div>
+
+            <label class="check-option"><input id="signup-terms" type="checkbox" name="terms"> <span>I agree to the terms and privacy notice</span></label><p class="field-error" id="signup-terms-error" aria-live="polite"></p>
+            <button class="btn auth-submit" type="submit">Create Account</button><p class="auth-success" role="status"></p><p class="auth-switch">Already have an account? <a href="login.html">Login</a></p>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid"><div class="footer-brand"><h3>Sir.G <span class="accent-text-light">Tutors</span></h3><p>Helping students grow with confidence through personal, practical learning support.</p></div><div class="footer-column"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a></div><div class="footer-column"><h4>Resources</h4><a href="find-tutor.html">Find a Tutor</a><a href="contact.html">Contact</a><a href="login.html">Login</a></div><div class="footer-column"><h4>Contact</h4><p>Email: hello@sirg-tutors.com</p><p>Phone: +92 300 000 0000</p><p>Location: Lahore, Pakistan</p></div></div>
+    <div class="container footer-bottom">© 2026 Sir.G Tutors. All rights reserved.</div>
+  </footer>
+  <script src="js/animations.js" defer></script><script src="js/auth.js" defer></script>
 </body>
 </html>

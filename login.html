@@ -3,8 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sir.G Tutors - Login</title>
+  <meta name="description" content="Login to your Sir.G Tutors account.">
+  <title>Login | Sir.G Tutors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="auth-page">
+  <div class="page-loader" aria-hidden="true">
+    <span class="loader-brand"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></span>
+  </div>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Sir.G Tutors home page"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <div class="nav-wrap" id="nav-menu">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="find-tutor.html">Find a Tutor</a><a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-login active-auth" href="login.html" aria-current="page">Login</a>
+          <a class="btn btn-primary navbar-demo" href="contact.html">Book a Free Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-layout" data-animate="fade-up">
+      <section class="auth-panel" aria-label="Welcome">
+        <span class="auth-shape-one" aria-hidden="true"></span>
+        <span class="auth-shape-two" aria-hidden="true"></span>
+        <div class="auth-panel-content">
+          <h1>Welcome back</h1>
+          <ul class="auth-benefits">
+            <li>Continue your learning journey</li>
+            <li>Keep track of your tutor requests</li>
+            <li>Get clear support when you need it</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="auth-form-side" aria-labelledby="login-title">
+        <div class="auth-form-wrap">
+          <h2 id="login-title">Login to your account</h2>
+          <form class="auth-form" id="login-form" novalidate>
+            <div class="floating-field">
+              <input id="login-email" name="email" type="email" placeholder=" " autocomplete="email" required>
+              <label for="login-email">Email</label>
+              <p class="field-error" id="login-email-error" aria-live="polite"></p>
+            </div>
+
+            <div class="floating-field">
+              <input id="login-password" name="password" type="password" placeholder=" " autocomplete="current-password" required>
+              <label for="login-password">Password</label>
+              <button class="password-toggle" type="button" aria-label="Show password" aria-controls="login-password">Show</button>
+              <p class="field-error" id="login-password-error" aria-live="polite"></p>
+            </div>
+
+            <div class="form-options">
+              <label class="check-option"><input type="checkbox" name="remember"> <span>Remember me</span></label>
+              <a class="forgot-link" href="#">Forgot password?</a>
+            </div>
+
+            <button class="btn auth-submit" type="submit">Login</button>
+            <p class="auth-success" role="status"></p>
+            <p class="auth-switch">New here? <a href="signup.html">Create an account</a></p>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><h3>Sir.G <span class="accent-text-light">Tutors</span></h3><p>Helping students grow with confidence through personal, practical learning support.</p></div>
+      <div class="footer-column"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a></div>
+      <div class="footer-column"><h4>Resources</h4><a href="find-tutor.html">Find a Tutor</a><a href="contact.html">Contact</a><a href="login.html">Login</a></div>
+      <div class="footer-column"><h4>Contact</h4><p>Email: hello@sirg-tutors.com</p><p>Phone: +92 300 000 0000</p><p>Location: Lahore, Pakistan</p></div>
+    </div>
+    <div class="container footer-bottom">© 2026 Sir.G Tutors. All rights reserved.</div>
+  </footer>
+  <script src="js/animations.js" defer></script>
+  <script src="js/auth.js" defer></script>
 </body>
 </html>

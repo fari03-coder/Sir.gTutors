@@ -3,8 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sir.G Tutors - Tutor Register</title>
+  <meta name="description" content="Apply to become a tutor with Sir.G Tutors.">
+  <title>Become a Tutor | Sir.G Tutors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="tutor-register-page">
+  <div class="page-loader" aria-hidden="true"><span class="loader-brand"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></span></div>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Sir.G Tutors home page"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <div class="nav-wrap" id="nav-menu">
+        <nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a class="active" href="tutor-register.html" aria-current="page">Become a Tutor</a><a href="contact.html">Contact</a></nav>
+        <div class="nav-actions"><a class="btn btn-login" href="login.html">Login</a><a class="btn btn-primary navbar-demo" href="contact.html">Book a Free Demo</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="tutor-register-header" aria-labelledby="register-title" data-animate="fade-up">
+      <span class="tutor-header-shape tutor-header-shape-yellow" aria-hidden="true"></span>
+      <span class="tutor-header-shape tutor-header-shape-orange" aria-hidden="true"></span>
+      <div class="container tutor-header-inner">
+        <span class="eyebrow">Become a tutor</span>
+        <h1 id="register-title">Share your <span class="accent-text">knowledge</span></h1>
+        <p>Tell us about yourself and how you help students grow.</p>
+        <div class="tutor-benefits" aria-label="Tutor benefits">
+          <span><b aria-hidden="true">✓</b> Flexible teaching</span>
+          <span><b aria-hidden="true">✓</b> Share your skills</span>
+          <span><b aria-hidden="true">✓</b> Support students</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tutor-registration-section" aria-label="Tutor application">
+      <div class="container tutor-registration-wrap">
+        <div class="registration-progress" aria-label="Application progress">
+          <div class="progress-track"><span class="progress-fill"></span></div>
+          <ol>
+            <li class="progress-step active" data-step="0"><span class="progress-dot">1</span><span class="progress-label">Personal</span></li>
+            <li class="progress-step" data-step="1"><span class="progress-dot">2</span><span class="progress-label">Teaching</span></li>
+            <li class="progress-step" data-step="2"><span class="progress-dot">3</span><span class="progress-label">Profile</span></li>
+            <li class="progress-step" data-step="3"><span class="progress-dot">4</span><span class="progress-label">Documents</span></li>
+          </ol>
+        </div>
+
+        <form id="tutor-registration-form" novalidate>
+          <div class="form-step active" data-step="0">
+            <div class="step-heading"><span>Step 1 of 4</span><h2>Personal details</h2></div>
+            <div class="tutor-form-grid">
+              <div class="form-field"><label for="full-name">Full name</label><input id="full-name" name="fullName" type="text" required><p class="field-error"></p></div>
+              <div class="form-field"><label for="tutor-email">Email</label><input id="tutor-email" name="email" type="email" required><p class="field-error"></p></div>
+              <div class="form-field"><label for="tutor-phone">Phone/WhatsApp</label><input id="tutor-phone" name="phone" type="tel" required><p class="field-error"></p></div>
+              <div class="form-field"><label for="tutor-city">City</label><input id="tutor-city" name="city" type="text" required><p class="field-error"></p></div>
+              <div class="form-field full-width"><label for="tutor-area">Area</label><input id="tutor-area" name="area" type="text" required><p class="field-error"></p></div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="1">
+            <div class="step-heading"><span>Step 2 of 4</span><h2>Teaching details</h2></div>
+            <fieldset class="choice-group" id="subjects-group"><legend>Subjects</legend><div class="choice-chips"><label><input type="checkbox" name="subjects" value="Mathematics"><span>Mathematics</span></label><label><input type="checkbox" name="subjects" value="Science"><span>Science</span></label><label><input type="checkbox" name="subjects" value="English"><span>English</span></label><label><input type="checkbox" name="subjects" value="Physics"><span>Physics</span></label><label><input type="checkbox" name="subjects" value="Chemistry"><span>Chemistry</span></label><label><input type="checkbox" name="subjects" value="Biology"><span>Biology</span></label><label><input type="checkbox" name="subjects" value="Computer Science"><span>Computer Science</span></label></div><p class="field-error"></p></fieldset>
+            <fieldset class="choice-group" id="levels-group"><legend>Levels</legend><div class="choice-chips"><label><input type="checkbox" name="levels" value="Primary"><span>Primary</span></label><label><input type="checkbox" name="levels" value="Middle"><span>Middle</span></label><label><input type="checkbox" name="levels" value="Matric"><span>Matric</span></label><label><input type="checkbox" name="levels" value="O/A Levels"><span>O/A Levels</span></label><label><input type="checkbox" name="levels" value="University"><span>University</span></label></div><p class="field-error"></p></fieldset>
+            <fieldset class="choice-group"><legend>Teaching mode</legend><div class="choice-pills"><label><input type="radio" name="teachingMode" value="Home"><span>Home</span></label><label><input type="radio" name="teachingMode" value="Online"><span>Online</span></label><label><input type="radio" name="teachingMode" value="Both"><span>Both</span></label></div><p class="field-error" data-error-for="teachingMode"></p></fieldset>
+            <div class="tutor-form-grid">
+              <div class="form-field"><label for="experience">Years of experience</label><input id="experience" name="experience" type="number" min="0" required><p class="field-error"></p></div>
+              <div class="form-field"><label for="fee">Expected fee per hour</label><input id="fee" name="fee" type="number" min="0" required><p class="field-error"></p></div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="step-heading"><span>Step 3 of 4</span><h2>Your profile</h2></div>
+            <div class="tutor-form-grid">
+              <div class="form-field"><label for="qualification">Highest qualification</label><input id="qualification" name="qualification" type="text" required><p class="field-error"></p></div>
+              <div class="form-field"><label for="institute">Institute</label><input id="institute" name="institute" type="text" required><p class="field-error"></p></div>
+            </div>
+            <div class="form-field bio-field"><label for="bio">Short bio</label><textarea id="bio" name="bio" maxlength="400" required></textarea><div class="bio-counter"><span class="field-error"></span><span><b id="bio-count">0</b>/400</span></div></div>
+            <fieldset class="choice-group" id="availability-group"><legend>Weekly availability</legend><div class="choice-chips"><label><input type="checkbox" name="days" value="Monday"><span>Mon</span></label><label><input type="checkbox" name="days" value="Tuesday"><span>Tue</span></label><label><input type="checkbox" name="days" value="Wednesday"><span>Wed</span></label><label><input type="checkbox" name="days" value="Thursday"><span>Thu</span></label><label><input type="checkbox" name="days" value="Friday"><span>Fri</span></label><label><input type="checkbox" name="days" value="Saturday"><span>Sat</span></label><label><input type="checkbox" name="days" value="Sunday"><span>Sun</span></label></div><p class="field-error"></p></fieldset>
+            <fieldset class="choice-group"><legend>Preferred time</legend><div class="choice-pills"><label><input type="radio" name="availabilityTime" value="Morning"><span>Morning</span></label><label><input type="radio" name="availabilityTime" value="Afternoon"><span>Afternoon</span></label><label><input type="radio" name="availabilityTime" value="Evening"><span>Evening</span></label></div><p class="field-error" data-error-for="availabilityTime"></p></fieldset>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="step-heading"><span>Step 4 of 4</span><h2>Documents</h2></div>
+            <div class="tutor-form-grid">
+              <div class="upload-field"><label for="cv-upload">CV document <span>(PDF only)</span></label><label class="upload-box" for="cv-upload"><input id="cv-upload" name="cv" type="file" accept="application/pdf,.pdf"><span class="upload-icon" aria-hidden="true">＋</span><strong>Drop your CV here</strong><small>or click to choose a PDF</small><b class="file-name"></b></label><p class="field-error"></p></div>
+              <div class="upload-field"><label for="id-upload">ID document</label><label class="upload-box" for="id-upload"><input id="id-upload" name="idDocument" type="file"><span class="upload-icon" aria-hidden="true">＋</span><strong>Drop your ID here</strong><small>or click to choose a file</small><b class="file-name"></b></label><p class="field-error"></p></div>
+            </div>
+            <p class="document-note">Your documents are private and used only for verification</p>
+            <label class="terms-check"><input id="application-terms" type="checkbox"><span>I confirm that the information provided is accurate.</span></label><p class="field-error terms-error"></p>
+          </div>
+
+          <div class="registration-actions">
+            <button class="btn tutor-back" type="button" hidden>Back</button>
+            <button class="btn tutor-next" type="button">Next</button>
+            <button class="btn tutor-submit" type="submit" hidden>Submit Application</button>
+          </div>
+        </form>
+
+        <div class="application-success" role="status" aria-live="polite" hidden>
+          <span class="success-check" aria-hidden="true">✓</span>
+          <h2>Application received!</h2>
+          <p>Our team reviews applications in 3 business days</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid"><div class="footer-brand"><h3>Sir.G <span class="accent-text-light">Tutors</span></h3><p>Helping students grow with confidence through personal, practical learning support.</p></div><div class="footer-column"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a></div><div class="footer-column"><h4>Resources</h4><a href="find-tutor.html">Find a Tutor</a><a href="contact.html">Contact</a><a href="login.html">Login</a></div><div class="footer-column"><h4>Contact</h4><p>Email: hello@sirg-tutors.com</p><p>Phone: +92 300 000 0000</p><p>Location: Lahore, Pakistan</p></div></div>
+    <div class="container footer-bottom">© 2026 Sir.G Tutors. All rights reserved.</div>
+  </footer>
+
+  <script src="js/animations.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.querySelector(".nav-toggle");
+      const navWrap = document.querySelector(".nav-wrap");
+      if (toggle && navWrap) toggle.addEventListener("click", function () { const open = navWrap.classList.toggle("open"); toggle.setAttribute("aria-expanded", String(open)); });
+
+      const form = document.querySelector("#tutor-registration-form");
+      const steps = Array.from(document.querySelectorAll(".form-step"));
+      const progressSteps = Array.from(document.querySelectorAll(".progress-step"));
+      const progressFill = document.querySelector(".progress-fill");
+      const backButton = document.querySelector(".tutor-back");
+      const nextButton = document.querySelector(".tutor-next");
+      const submitButton = document.querySelector(".tutor-submit");
+      let currentStep = 0;
+
+      function setError(field, message) { const wrap = field.closest(".form-field") || field.closest("fieldset") || field.closest(".upload-field") || field.parentElement; const error = wrap.querySelector(".field-error") || wrap.parentElement.querySelector(".field-error"); if (error) error.textContent = message; field.setAttribute("aria-invalid", "true"); }
+      function clearError(field) { const wrap = field.closest(".form-field") || field.closest("fieldset") || field.closest(".upload-field") || field.parentElement; const error = wrap && wrap.querySelector(".field-error"); if (error) error.textContent = ""; field.removeAttribute("aria-invalid"); }
+
+      function showStep(index) {
+        steps.forEach((step, i) => { step.classList.toggle("active", i === index); });
+        progressSteps.forEach((step, i) => { step.classList.toggle("active", i === index); step.classList.toggle("done", i < index); const dot = step.querySelector(".progress-dot"); dot.textContent = i < index ? "✓" : String(i + 1); });
+        progressFill.style.width = (index / 3 * 100) + "%";
+        backButton.hidden = index === 0; nextButton.hidden = index === steps.length - 1; submitButton.hidden = index !== steps.length - 1;
+      }
+
+      function validateRequiredInputs(step) {
+        let valid = true; let firstInvalid = null;
+        step.querySelectorAll("input[required], textarea[required], select[required]").forEach(field => { clearError(field); if (!field.value.trim()) { setError(field, "This field is required."); valid = false; firstInvalid = firstInvalid || field; } });
+        step.querySelectorAll('input[type="email"]').forEach(field => { if (field.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) { setError(field, "Please enter a valid email address."); valid = false; firstInvalid = firstInvalid || field; } });
+        if (step.dataset.step === "1") {
+          const subjects = step.querySelectorAll('input[name="subjects"]:checked'); const levels = step.querySelectorAll('input[name="levels"]:checked'); const mode = step.querySelector('input[name="teachingMode"]:checked');
+          if (!subjects.length) { step.querySelector("#subjects-group .field-error").textContent = "Choose at least one subject."; valid = false; }
+          if (!levels.length) { step.querySelector("#levels-group .field-error").textContent = "Choose at least one level."; valid = false; }
+          if (!mode) { step.querySelector('[data-error-for="teachingMode"]').textContent = "Choose a teaching mode."; valid = false; }
+        }
+        if (step.dataset.step === "2") {
+          const days = step.querySelectorAll('input[name="days"]:checked'); const time = step.querySelector('input[name="availabilityTime"]:checked'); const bio = step.querySelector("#bio");
+          if (!days.length) { step.querySelector("#availability-group .field-error").textContent = "Choose at least one available day."; valid = false; }
+          if (!time) { step.querySelector('[data-error-for="availabilityTime"]').textContent = "Choose a preferred time."; valid = false; }
+          if (bio.value.trim() && bio.value.length > 400) { bio.nextElementSibling.querySelector(".field-error").textContent = "Bio must be 400 characters or fewer."; valid = false; }
+        }
+        if (firstInvalid) firstInvalid.focus(); return valid;
+      }
+
+      nextButton.addEventListener("click", function () { if (!validateRequiredInputs(steps[currentStep])) return; currentStep += 1; showStep(currentStep); });
+      backButton.addEventListener("click", function () { if (currentStep > 0) { currentStep -= 1; showStep(currentStep); } });
+
+      const bio = document.querySelector("#bio");
+      const bioCount = document.querySelector("#bio-count");
+      bio.addEventListener("input", function () { bioCount.textContent = bio.value.length; });
+
+      document.querySelectorAll(".upload-box input[type=file]").forEach(input => {
+        const box = input.closest(".upload-box");
+        function showFileName() { const name = box.querySelector(".file-name"); name.textContent = input.files.length ? input.files[0].name : ""; box.classList.toggle("has-file", input.files.length > 0); }
+        input.addEventListener("change", showFileName);
+        box.addEventListener("dragover", function (dragEvent) { dragEvent.preventDefault(); box.classList.add("has-file"); });
+        box.addEventListener("dragleave", function () { if (!input.files.length) box.classList.remove("has-file"); });
+        box.addEventListener("drop", function (dragEvent) { dragEvent.preventDefault(); if (dragEvent.dataTransfer.files.length && typeof DataTransfer !== "undefined") { input.files = dragEvent.dataTransfer.files; showFileName(); } });
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const cv = document.querySelector("#cv-upload"); const id = document.querySelector("#id-upload"); const terms = document.querySelector("#application-terms"); const termsError = document.querySelector(".terms-error");
+        let valid = true; termsError.textContent = "";
+        document.querySelectorAll('.upload-field').forEach(field => { field.querySelector('.field-error').textContent = ''; });
+        if (!cv.files.length) { cv.closest(".upload-field").querySelector(".field-error").textContent = "Please choose your CV PDF."; valid = false; }
+        else if (cv.files[0].type !== "application/pdf" && !cv.files[0].name.toLowerCase().endsWith(".pdf")) { cv.closest(".upload-field").querySelector(".field-error").textContent = "CV must be a PDF file."; valid = false; }
+        if (!id.files.length) { id.closest(".upload-field").querySelector(".field-error").textContent = "Please choose your ID document."; valid = false; }
+        if (!terms.checked) { termsError.textContent = "Please confirm the information is accurate."; valid = false; }
+        if (!valid) return;
+        form.hidden = true; document.querySelector(".registration-progress").hidden = true; document.querySelector(".application-success").hidden = false;
+      });
+
+      showStep(0);
+    });
+  </script>
 </body>
 </html>
