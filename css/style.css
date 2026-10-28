@@ -640,7 +640,7 @@ img {
 .hero-actions {
   display: flex;
   gap: var(--space-sm);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .hero-visual {
