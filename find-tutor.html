@@ -63,9 +63,9 @@
             <form id="tutor-request-form" novalidate>
               <div class="request-field"><label for="request-subject">Subject</label><input id="request-subject" name="subject" type="text" required><p class="request-error"></p></div>
               <div class="request-field"><label for="request-level">Level</label><select id="request-level" name="level" required><option value="">Choose a level</option><option>Primary</option><option>Middle</option><option>Matric</option><option>O/A Levels</option><option>University</option></select><p class="request-error"></p></div>
-              <div class="request-field"><label for="request-city">City</label><input id="request-city" name="city" type="text" required><p class="request-error"></p></div>
-              <div class="request-field"><label for="request-details">Details</label><textarea id="request-details" name="details" rows="3" required></textarea><p class="request-error"></p></div>
-              <div class="request-field"><label for="request-phone">Phone</label><input id="request-phone" name="phone" type="tel" required><p class="request-error"></p></div>
+              <div class="request-field"><label for="request-city">City</label><input id="request-city" name="city" type="text"><p class="request-error"></p></div>
+              <div class="request-field"><label for="request-mode">Mode</label><select id="request-mode" name="mode"><option value="home">Home</option><option value="online">Online</option><option value="both" selected>Both</option></select><p class="request-error"></p></div>
+              <div class="request-field"><label for="request-details">Details</label><textarea id="request-details" name="details" rows="3" maxlength="1000"></textarea><div class="request-details-counter"><span id="request-details-count">0</span>/1000</div><p class="request-error"></p></div>
               <button class="btn request-submit" type="submit">Post a Request</button>
               <p class="request-success" role="status"></p>
             </form>
@@ -86,6 +86,9 @@
   </footer>
 
   <script src="js/animations.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/supabaseClient.js" defer></script>
+  <script src="js/requests.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const navToggle = document.querySelector(".nav-toggle");
@@ -118,7 +121,6 @@
       const feeValue = document.querySelector("#fee-value");
 
       function initials(name) { return name.split(" ").map(function (part) { return part[0]; }).join("").slice(0,2).toUpperCase(); }
-      function escapeHtml(value) { const span = document.createElement("span"); span.textContent = value; return span.innerHTML; }
 
       function renderTutors() {
         const search = searchInput.value.trim().toLowerCase();
@@ -135,9 +137,70 @@
         });
 
         count.textContent = matches.length + (matches.length === 1 ? " tutor" : " tutors");
-        list.innerHTML = matches.map(function (tutor, index) {
-          return '<article class="tutor-result-row" style="--row-delay:' + (index * 100) + 'ms"><div class="tutor-avatar">' + escapeHtml(initials(tutor.name)) + '</div><div class="tutor-row-main"><div class="tutor-name-line"><h2>' + escapeHtml(tutor.name) + '</h2><span class="verified-badge" title="Sample verified tutor" aria-label="Verified sample tutor">✓</span></div><div class="subject-chips">' + tutor.subjects.map(function (item) { return '<span>' + escapeHtml(item) + '</span>'; }).join("") + '</div><p class="tutor-bio">' + escapeHtml(tutor.bio) + '</p><div class="tutor-meta"><span>' + escapeHtml(tutor.level) + '</span><span>' + escapeHtml(tutor.city + ', ' + tutor.area) + '</span><span>' + escapeHtml(tutor.mode) + '</span><span>' + tutor.experience + ' years</span></div></div><div class="tutor-row-action"><strong>Rs. ' + tutor.fee.toLocaleString() + '<small>/hour</small></strong><a class="btn tutor-demo-button" href="contact.html">Request a Free Demo</a><p>Contact details stay private until you start</p></div></article>';
-        }).join("");
+        list.replaceChildren();
+        matches.forEach(function (tutor, index) {
+          const row = document.createElement("article");
+          row.className = "tutor-result-row";
+          row.style.setProperty("--row-delay", (index * 100) + "ms");
+
+          const avatar = document.createElement("div");
+          avatar.className = "tutor-avatar";
+          avatar.textContent = initials(tutor.name);
+
+          const main = document.createElement("div");
+          main.className = "tutor-row-main";
+
+          const nameLine = document.createElement("div");
+          nameLine.className = "tutor-name-line";
+          const name = document.createElement("h2");
+          name.textContent = tutor.name;
+          const verified = document.createElement("span");
+          verified.className = "verified-badge";
+          verified.title = "Sample verified tutor";
+          verified.setAttribute("aria-label", "Verified sample tutor");
+          verified.textContent = "✓";
+          nameLine.append(name, verified);
+
+          const chips = document.createElement("div");
+          chips.className = "subject-chips";
+          tutor.subjects.forEach(function (item) {
+            const chip = document.createElement("span");
+            chip.textContent = item;
+            chips.appendChild(chip);
+          });
+
+          const bio = document.createElement("p");
+          bio.className = "tutor-bio";
+          bio.textContent = tutor.bio;
+
+          const meta = document.createElement("div");
+          meta.className = "tutor-meta";
+          [tutor.level, tutor.city + ", " + tutor.area, tutor.mode, tutor.experience + " years"].forEach(function (item) {
+            const span = document.createElement("span");
+            span.textContent = item;
+            meta.appendChild(span);
+          });
+          main.append(nameLine, chips, bio, meta);
+
+          const action = document.createElement("div");
+          action.className = "tutor-row-action";
+          const fee = document.createElement("strong");
+          fee.textContent = "Rs. " + tutor.fee.toLocaleString();
+          const perHour = document.createElement("small");
+          perHour.textContent = "/hour";
+          fee.appendChild(perHour);
+          const demoButton = document.createElement("button");
+          demoButton.type = "button";
+          demoButton.className = "btn tutor-demo-button";
+          demoButton.dataset.subject = tutor.subjects[0];
+          demoButton.textContent = "Request a Free Demo";
+          const privacy = document.createElement("p");
+          privacy.textContent = "Contact details stay private until you start";
+          action.append(fee, demoButton, privacy);
+
+          row.append(avatar, main, action);
+          list.appendChild(row);
+        });
         emptyState.hidden = matches.length !== 0;
         list.hidden = matches.length === 0;
 
@@ -151,17 +214,6 @@
       function clearFilters() { searchInput.value = ""; subjectFilter.value = ""; levelFilter.value = ""; cityFilter.value = ""; modeFilter.value = ""; feeFilter.value = "5000"; renderTutors(); }
       document.querySelector("#clear-filters").addEventListener("click", clearFilters);
       document.querySelector("#empty-clear").addEventListener("click", clearFilters);
-
-      const requestForm = document.querySelector("#tutor-request-form");
-      const requestSuccess = requestForm.querySelector(".request-success");
-      requestForm.querySelectorAll("input, select, textarea").forEach(function (field) { field.addEventListener("input", function () { field.parentElement.querySelector(".request-error").textContent = ""; requestSuccess.textContent = ""; }); });
-      requestForm.addEventListener("submit", function (event) {
-        event.preventDefault(); let firstInvalid = null; requestSuccess.textContent = "";
-        requestForm.querySelectorAll("[required]").forEach(function (field) { const error = field.parentElement.querySelector(".request-error"); error.textContent = ""; if (!field.value.trim()) { error.textContent = "This field is required."; firstInvalid = firstInvalid || field; } });
-        if (firstInvalid) { firstInvalid.focus(); return; }
-        requestSuccess.textContent = "Thank you! Your request has been noted.";
-        requestForm.reset();
-      });
 
       renderTutors();
     });

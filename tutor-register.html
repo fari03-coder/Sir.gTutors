@@ -42,7 +42,7 @@
 
     <section class="tutor-registration-section" aria-label="Tutor application">
       <div class="container tutor-registration-wrap">
-        <div class="registration-progress" aria-label="Application progress">
+        <div class="registration-progress" aria-label="Application progress" hidden>
           <div class="progress-track"><span class="progress-fill"></span></div>
           <ol>
             <li class="progress-step active" data-step="0"><span class="progress-dot">1</span><span class="progress-label">Personal</span></li>
@@ -52,7 +52,7 @@
           </ol>
         </div>
 
-        <form id="tutor-registration-form" novalidate>
+        <form id="tutor-registration-form" novalidate hidden>
           <div class="form-step active" data-step="0">
             <div class="step-heading"><span>Step 1 of 4</span><h2>Personal details</h2></div>
             <div class="tutor-form-grid">
@@ -89,8 +89,8 @@
           <div class="form-step" data-step="3">
             <div class="step-heading"><span>Step 4 of 4</span><h2>Documents</h2></div>
             <div class="tutor-form-grid">
-              <div class="upload-field"><label for="cv-upload">CV document <span>(PDF only)</span></label><label class="upload-box" for="cv-upload"><input id="cv-upload" name="cv" type="file" accept="application/pdf,.pdf"><span class="upload-icon" aria-hidden="true">＋</span><strong>Drop your CV here</strong><small>or click to choose a PDF</small><b class="file-name"></b></label><p class="field-error"></p></div>
-              <div class="upload-field"><label for="id-upload">ID document</label><label class="upload-box" for="id-upload"><input id="id-upload" name="idDocument" type="file"><span class="upload-icon" aria-hidden="true">＋</span><strong>Drop your ID here</strong><small>or click to choose a file</small><b class="file-name"></b></label><p class="field-error"></p></div>
+              <div class="upload-field"><label for="cv-upload">CV document</label><label class="upload-box" for="cv-upload"><input id="cv-upload" name="cv" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"><span class="upload-icon" aria-hidden="true">＋</span><strong>Drop your CV here</strong><small>PDF, JPG or PNG (max 5 MB)</small><b class="file-name"></b></label><p class="field-error"></p></div>
+              <div class="upload-field"><label for="id-upload">ID document</label><label class="upload-box" for="id-upload"><input id="id-upload" name="idDocument" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"><span class="upload-icon" aria-hidden="true">＋</span><strong>Drop your ID here</strong><small>PDF, JPG or PNG (max 5 MB)</small><b class="file-name"></b></label><p class="field-error"></p></div>
             </div>
             <p class="document-note">Your documents are private and used only for verification</p>
             <label class="terms-check"><input id="application-terms" type="checkbox"><span>I confirm that the information provided is accurate.</span></label><p class="field-error terms-error"></p>
@@ -108,6 +108,11 @@
           <h2>Application received!</h2>
           <p>Our team reviews applications in 3 business days</p>
         </div>
+        <div class="application-status application-success" role="status" aria-live="polite" hidden>
+          <span class="success-check" aria-hidden="true">✓</span>
+          <h2>You have already applied</h2>
+          <p class="application-status-text"></p>
+        </div>
       </div>
     </section>
   </main>
@@ -118,81 +123,8 @@
   </footer>
 
   <script src="js/animations.js" defer></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const toggle = document.querySelector(".nav-toggle");
-      const navWrap = document.querySelector(".nav-wrap");
-      if (toggle && navWrap) toggle.addEventListener("click", function () { const open = navWrap.classList.toggle("open"); toggle.setAttribute("aria-expanded", String(open)); });
-
-      const form = document.querySelector("#tutor-registration-form");
-      const steps = Array.from(document.querySelectorAll(".form-step"));
-      const progressSteps = Array.from(document.querySelectorAll(".progress-step"));
-      const progressFill = document.querySelector(".progress-fill");
-      const backButton = document.querySelector(".tutor-back");
-      const nextButton = document.querySelector(".tutor-next");
-      const submitButton = document.querySelector(".tutor-submit");
-      let currentStep = 0;
-
-      function setError(field, message) { const wrap = field.closest(".form-field") || field.closest("fieldset") || field.closest(".upload-field") || field.parentElement; const error = wrap.querySelector(".field-error") || wrap.parentElement.querySelector(".field-error"); if (error) error.textContent = message; field.setAttribute("aria-invalid", "true"); }
-      function clearError(field) { const wrap = field.closest(".form-field") || field.closest("fieldset") || field.closest(".upload-field") || field.parentElement; const error = wrap && wrap.querySelector(".field-error"); if (error) error.textContent = ""; field.removeAttribute("aria-invalid"); }
-
-      function showStep(index) {
-        steps.forEach((step, i) => { step.classList.toggle("active", i === index); });
-        progressSteps.forEach((step, i) => { step.classList.toggle("active", i === index); step.classList.toggle("done", i < index); const dot = step.querySelector(".progress-dot"); dot.textContent = i < index ? "✓" : String(i + 1); });
-        progressFill.style.width = (index / 3 * 100) + "%";
-        backButton.hidden = index === 0; nextButton.hidden = index === steps.length - 1; submitButton.hidden = index !== steps.length - 1;
-      }
-
-      function validateRequiredInputs(step) {
-        let valid = true; let firstInvalid = null;
-        step.querySelectorAll("input[required], textarea[required], select[required]").forEach(field => { clearError(field); if (!field.value.trim()) { setError(field, "This field is required."); valid = false; firstInvalid = firstInvalid || field; } });
-        step.querySelectorAll('input[type="email"]').forEach(field => { if (field.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) { setError(field, "Please enter a valid email address."); valid = false; firstInvalid = firstInvalid || field; } });
-        if (step.dataset.step === "1") {
-          const subjects = step.querySelectorAll('input[name="subjects"]:checked'); const levels = step.querySelectorAll('input[name="levels"]:checked'); const mode = step.querySelector('input[name="teachingMode"]:checked');
-          if (!subjects.length) { step.querySelector("#subjects-group .field-error").textContent = "Choose at least one subject."; valid = false; }
-          if (!levels.length) { step.querySelector("#levels-group .field-error").textContent = "Choose at least one level."; valid = false; }
-          if (!mode) { step.querySelector('[data-error-for="teachingMode"]').textContent = "Choose a teaching mode."; valid = false; }
-        }
-        if (step.dataset.step === "2") {
-          const days = step.querySelectorAll('input[name="days"]:checked'); const time = step.querySelector('input[name="availabilityTime"]:checked'); const bio = step.querySelector("#bio");
-          if (!days.length) { step.querySelector("#availability-group .field-error").textContent = "Choose at least one available day."; valid = false; }
-          if (!time) { step.querySelector('[data-error-for="availabilityTime"]').textContent = "Choose a preferred time."; valid = false; }
-          if (bio.value.trim() && bio.value.length > 400) { bio.nextElementSibling.querySelector(".field-error").textContent = "Bio must be 400 characters or fewer."; valid = false; }
-        }
-        if (firstInvalid) firstInvalid.focus(); return valid;
-      }
-
-      nextButton.addEventListener("click", function () { if (!validateRequiredInputs(steps[currentStep])) return; currentStep += 1; showStep(currentStep); });
-      backButton.addEventListener("click", function () { if (currentStep > 0) { currentStep -= 1; showStep(currentStep); } });
-
-      const bio = document.querySelector("#bio");
-      const bioCount = document.querySelector("#bio-count");
-      bio.addEventListener("input", function () { bioCount.textContent = bio.value.length; });
-
-      document.querySelectorAll(".upload-box input[type=file]").forEach(input => {
-        const box = input.closest(".upload-box");
-        function showFileName() { const name = box.querySelector(".file-name"); name.textContent = input.files.length ? input.files[0].name : ""; box.classList.toggle("has-file", input.files.length > 0); }
-        input.addEventListener("change", showFileName);
-        box.addEventListener("dragover", function (dragEvent) { dragEvent.preventDefault(); box.classList.add("has-file"); });
-        box.addEventListener("dragleave", function () { if (!input.files.length) box.classList.remove("has-file"); });
-        box.addEventListener("drop", function (dragEvent) { dragEvent.preventDefault(); if (dragEvent.dataTransfer.files.length && typeof DataTransfer !== "undefined") { input.files = dragEvent.dataTransfer.files; showFileName(); } });
-      });
-
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const cv = document.querySelector("#cv-upload"); const id = document.querySelector("#id-upload"); const terms = document.querySelector("#application-terms"); const termsError = document.querySelector(".terms-error");
-        let valid = true; termsError.textContent = "";
-        document.querySelectorAll('.upload-field').forEach(field => { field.querySelector('.field-error').textContent = ''; });
-        if (!cv.files.length) { cv.closest(".upload-field").querySelector(".field-error").textContent = "Please choose your CV PDF."; valid = false; }
-        else if (cv.files[0].type !== "application/pdf" && !cv.files[0].name.toLowerCase().endsWith(".pdf")) { cv.closest(".upload-field").querySelector(".field-error").textContent = "CV must be a PDF file."; valid = false; }
-        if (!id.files.length) { id.closest(".upload-field").querySelector(".field-error").textContent = "Please choose your ID document."; valid = false; }
-        if (!terms.checked) { termsError.textContent = "Please confirm the information is accurate."; valid = false; }
-        if (!valid) return;
-        form.hidden = true; document.querySelector(".registration-progress").hidden = true; document.querySelector(".application-success").hidden = false;
-      });
-
-      showStep(0);
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/supabaseClient.js" defer></script>
+  <script src="js/tutor-register.js" defer></script>
 </body>
 </html>

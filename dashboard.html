@@ -3,8 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Sir.G Tutors dashboard.">
   <title>Sir.G Tutors - Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="dashboard-page">
+  <div class="page-loader" aria-hidden="true">
+    <span class="loader-brand"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></span>
+  </div>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Sir.G Tutors home page"><span class="brand-main">Sir.G</span><span class="brand-accent">Tutors</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <div class="nav-wrap" id="nav-menu">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="find-tutor.html">Find a Tutor</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions"><a class="btn btn-login active-auth" href="dashboard.html" aria-current="page">Dashboard</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="container dashboard-wrap">
+      <div id="dashboard-loading" class="dashboard-loading" aria-live="polite">
+        <div class="dashboard-skeleton skeleton-title"></div>
+        <div class="dashboard-grid">
+          <div class="dashboard-skeleton skeleton-main"></div>
+          <div class="dashboard-skeleton skeleton-profile"></div>
+        </div>
+      </div>
+
+      <section id="dashboard-error" class="dashboard-error" role="alert" hidden>
+        <h1>We could not load your dashboard</h1>
+        <p>Please check your connection and try again.</p>
+        <button id="dashboard-retry" class="btn dashboard-button" type="button">Retry</button>
+      </section>
+
+      <div id="dashboard-content" hidden>
+        <div class="dashboard-heading">
+          <div>
+            <span class="eyebrow">Your account</span>
+            <h1 id="dashboard-welcome"></h1>
+          </div>
+          <span id="dashboard-role-badge" class="dashboard-role-badge"></span>
+        </div>
+
+        <div class="dashboard-grid">
+          <section id="dashboard-role-content" class="dashboard-main-panel" aria-live="polite"></section>
+
+          <aside class="dashboard-profile-panel" aria-labelledby="profile-title">
+            <span class="eyebrow">Profile</span>
+            <h2 id="profile-title">Your details</h2>
+            <form id="profile-form" novalidate>
+              <div class="dashboard-field">
+                <label for="profile-full-name">Full name</label>
+                <input id="profile-full-name" name="fullName" type="text" autocomplete="name" required>
+                <p id="profile-name-error" class="dashboard-field-error" aria-live="polite"></p>
+              </div>
+              <div class="dashboard-field">
+                <label for="profile-phone">Phone</label>
+                <input id="profile-phone" name="phone" type="tel" autocomplete="tel">
+                <p id="profile-phone-error" class="dashboard-field-error" aria-live="polite"></p>
+              </div>
+              <button id="profile-save" class="btn dashboard-button" type="submit">Save profile</button>
+              <p id="profile-message" class="dashboard-profile-message" role="status"></p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><h3>Sir.G <span class="accent-text-light">Tutors</span></h3><p>Helping students grow with confidence through personal, practical learning support.</p></div>
+      <div class="footer-column"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a></div>
+      <div class="footer-column"><h4>Resources</h4><a href="find-tutor.html">Find a Tutor</a><a href="contact.html">Contact</a><a href="login.html">Login</a></div>
+      <div class="footer-column"><h4>Contact</h4><p>Email: hello@sirg-tutors.com</p><p>Phone: +92 300 000 0000</p><p>Location: Lahore, Pakistan</p></div>
+    </div>
+    <div class="container footer-bottom">© 2026 Sir.G Tutors. All rights reserved.</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/supabaseClient.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
 </body>
 </html>
